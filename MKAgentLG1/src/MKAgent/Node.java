@@ -1,18 +1,34 @@
 package src.MKAgent;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by mbax9vv2 on 17/11/14.
+ * Created by mbax9vv2 on 21/11/14.
  */
 public class Node
 {
-    private List<Node> _children;
 
-    private BoardState _boardState;
+    Board state;
+    double value;
+    ArrayList<Node> children;
 
-    public void initialise()
+    //TODO
+    int propagate(int value)
     {
-        _boardState = new BoardState();
+        int maxValue = Integer.MIN_VALUE;
+        for(Node child : children)
+        {
+
+        }
+        return maxValue;
     }
+    //TODO
+
+    void setValue(int newVal)
+    {
+        value = newVal;
+    }
+
+
 }
