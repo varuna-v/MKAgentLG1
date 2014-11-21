@@ -5,4 +5,8 @@ package src.MKAgent;
  */
 public class Agent
 {
+    public static Move getNextBestMove()
+    {
+        //TODO
+    }
 }

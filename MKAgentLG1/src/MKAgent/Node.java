@@ -1,21 +1,28 @@
 package src.MKAgent;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by mbax9vv2 on 21/11/14.
  */
 public class Node
 {
-    Side playerSide;
+    Side playerMakingMove;
     Board state;
     double value;
     public ArrayList<Node> children;
 
-    public Node(Side playerSide, Board state)
+    public Node(Side playerMakingMove)
     {
-        this.playerSide = playerSide;
+        this.playerMakingMove = playerMakingMove;
+        state = new Board(7,7);
+        value = Integer.MIN_VALUE;
+        children = null;
+    }
+
+    public Node(Side playerMakingMove, Board state)
+    {
+        this.playerMakingMove = playerMakingMove;
         this.state = state;
         value = Integer.MIN_VALUE;
         children = null;
