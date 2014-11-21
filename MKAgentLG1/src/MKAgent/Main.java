@@ -1,51 +1,59 @@
 package src.MKAgent;
-
 import java.io.BufferedReader;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Reader;
 
 /**
- * Created by mbax9vv2 on 17/11/14.
+ * The main application class. It also provides methods for communication
+ * with the game engine.
  */
 public class Main
 {
+    /**
+     * Input from the game engine.
+     */
+    private static Reader input = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void Main(String args[])
+    /**
+     * Sends a message to the game engine.
+     * @param msg The message.
+     */
+    public static void sendMsg (String msg)
     {
-        try
-        {
-            InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String inputLine = bufferedReader.readLine();
-
-            TreeBuilder gameTreeBuilder = new TreeBuilder();
-            Agent agent = new Agent();
-            Player nextPlayer = null;
-            while (!inputLine.contains("END"))
-            {
-                try
-                {
-                    InputParser.parseInput(inputLine);
-
-                    if (nextPlayer == Player.ThisAgent)
-                    {
-                        MoveSwap nextMove = agent.getNextMove(gameState);
-                        System.out.println(nextMove.toString());
-                    }
-
-
-                }
-                catch (Exception ex)
-                {
-                    //Implement fallback
-                }
-                inputLine = bufferedReader.readLine();
-            }
-        }
-        catch (Exception ex)
-        {
-            //Implement fallback
-        }
+    	System.out.print(msg);
+    	System.out.flush();
     }
-}
 
+    /**
+     * Receives a message from the game engine. Messages are terminated by
+     * a '\n' character.
+     * @return The message.
+     * @throws IOException if there has been an I/O error.
+     */
+    public static String recvMsg() throws IOException
+    {
+    	StringBuilder message = new StringBuilder();
+    	int newCharacter;
+
+    	do
+    	{
+    		newCharacter = input.read();
+    		if (newCharacter == -1)
+    			throw new EOFException("Input ended unexpectedly.");
+    		message.append((char)newCharacter);
+    	} while((char)newCharacter != '\n');
+
+		return message.toString();
+    }
+
+	/**
+	 * The main method, invoked when the program is started.
+	 * @param args Command line arguments.
+	 */
+	public static void main(String[] args)
+	{
+		// TODO: implement
+	}
+}

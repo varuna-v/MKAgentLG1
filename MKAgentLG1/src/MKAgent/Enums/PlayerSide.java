@@ -5,6 +5,6 @@ package src.MKAgent.Enums;
  */
 public enum PlayerSide
 {
-    NORTH, //Player 2
-    SOUTH //Player 1
+    NORTH, //PlayerSideInfo 2
+    SOUTH //PlayerSideInfo 1
 }

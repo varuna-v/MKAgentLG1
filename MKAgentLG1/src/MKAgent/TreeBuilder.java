@@ -15,6 +15,11 @@ public class TreeBuilder
         _currentNode = new Node();
     }
 
+    public static void buildNextLayer()
+    {
+
+    }
+
     public static void UpdateTree(int move, PlayerSide playerSide)
     {
         throw new NotImplementedException();
