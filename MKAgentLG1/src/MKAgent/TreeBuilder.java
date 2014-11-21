@@ -15,9 +15,17 @@ public class TreeBuilder
         _currentNode = new Node();
     }
 
-    public static void buildNextLayer()
+    public static void build(Node startNode, int depth)
     {
+        if (startNode == null) { startNode = _currentNode; }
 
+        if (depth > 0)
+        {
+            for(Node child : startNode.children)
+            {
+                build(child, depth-1);
+            }
+        }
     }
 
     public static void UpdateTree(int move, PlayerSide playerSide)

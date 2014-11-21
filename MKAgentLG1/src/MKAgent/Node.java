@@ -11,7 +11,15 @@ public class Node
     Side playerSide;
     Board state;
     double value;
-    ArrayList<Node> children;
+    public ArrayList<Node> children;
+
+    public Node(Side playerSide, Board state)
+    {
+        this.playerSide = playerSide;
+        this.state = state;
+        value = Integer.MIN_VALUE;
+        children = null;
+    }
 
     //TODO
     int propagate(int value)
