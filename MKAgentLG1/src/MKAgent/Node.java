@@ -28,8 +28,7 @@ public class Node
         children = null;
     }
 
-    //TODO
-    int propagate(int value)
+        int propagate(int value)
     {
         int maxValue = Integer.MIN_VALUE;
         for(Node child : children)
@@ -38,17 +37,9 @@ public class Node
         }
         return maxValue;
     }
-    //TODO
 
     void setValue(int newVal)
     {
         value = newVal;
-    }
-
-    public int getValue()
-    {
-        //TODO
-        if (children == null || children.size() == 0)
-            return  Integer.MIN_VALUE;
     }
 }

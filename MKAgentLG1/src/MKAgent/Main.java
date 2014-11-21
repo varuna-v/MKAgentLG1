@@ -66,12 +66,14 @@ public class Main
             {
                 MsgType messageType = Protocol.getMessageType(receivedMessage);
                 boolean areWeMakingTheNextMove = false;
+                Side nextSide = Side.SOUTH;
                 switch (messageType)
                 {
                     case START:
                         areWeMakingTheNextMove = Protocol.interpretStartMsg(receivedMessage);
                         areWeSouth = areWeMakingTheNextMove;
                         TreeBuilder.initialiseTree();
+                        nextSide = getNextSide(areWeMakingTheNextMove, areWeSouth);
                         break;
                     case STATE:
                         Protocol.MoveTurn moveTurn = Protocol.interpretStateMsg(receivedMessage, TreeBuilder.getCurrentBoard());
@@ -84,9 +86,7 @@ public class Main
                             System.exit(0);
                         }
                         areWeMakingTheNextMove = moveTurn.again;
-                        boolean isSouthPlayingNext = false;
-                        isSouthPlayingNext = (areWeMakingTheNextMove && areWeSouth) || (!areWeMakingTheNextMove && !areWeSouth);
-                        Side nextSide = isSouthPlayingNext ? Side.SOUTH : Side.NORTH;
+                        nextSide = getNextSide(areWeMakingTheNextMove, areWeSouth);
                         TreeBuilder.UpdateTree(moveTurn.move, nextSide);
                         break;
                     case END:
@@ -94,8 +94,9 @@ public class Main
                 }
                 if (areWeMakingTheNextMove)
                 {
-                    //TODO
-                    Agent.getNextBestMove();
+                    Move move = Agent.getNextBestMove(TreeBuilder.getCurrentBoard(), nextSide);
+                    String messageToSend = Protocol.createMoveMsg(move.getHole());
+                    sendMsg(messageToSend);
                 }
             }
         }
@@ -103,6 +104,12 @@ public class Main
         {
             //TODO
         }
+    }
 
+    private static Side getNextSide(boolean areWeMakingTheNextMove, boolean areWeSouth)
+    {
+        boolean isSouthPlayingNext = false;
+        isSouthPlayingNext = (areWeMakingTheNextMove && areWeSouth) || (!areWeMakingTheNextMove && !areWeSouth);
+        return isSouthPlayingNext ? Side.SOUTH : Side.NORTH;
     }
 }
