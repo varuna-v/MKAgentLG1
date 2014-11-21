@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="459dd079-933a-4519-ad8f-8dcd72b73156" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Agent.java" afterPath="$PROJECT_DIR$/src/MKAgent/Agent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Main.java" afterPath="$PROJECT_DIR$/src/MKAgent/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Node.java" afterPath="$PROJECT_DIR$/src/MKAgent/Node.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MKAgentLG1.iws" />
@@ -136,9 +133,10 @@
       <file leaf-file-name="Node.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MKAgent/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71845794" vertical-offset="0" max-vertical-offset="856">
-              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.7009346" vertical-offset="0" max-vertical-offset="856">
+              <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
               <folding>
+                <element signature="e#815#816#0" expanded="true" />
                 <element signature="e#845#846#0" expanded="true" />
               </folding>
             </state>
@@ -620,7 +618,7 @@
       <updated>1416239287919</updated>
       <workItem from="1416239288476" duration="4257000" />
       <workItem from="1416579661699" duration="2169000" />
-      <workItem from="1416582476364" duration="8590000" />
+      <workItem from="1416582476364" duration="9076000" />
     </task>
     <task id="LOCAL-00001" summary="Incorporating provided code">
       <created>1416585834082</created>
@@ -650,11 +648,15 @@
       <created>1416590447375</created>
       <updated>1416590447375</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Created generic Agent which gives a random best next move">
+      <created>1416591108528</created>
+      <updated>1416591108528</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15016000" />
+    <option name="totallyTimeSpent" value="15502000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -678,7 +680,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="1000" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -700,7 +702,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25641027" sideWeight="0.49943376" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25641027" sideWeight="0.49943376" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -727,7 +729,8 @@
     <MESSAGE value="Modified Node to include a player side" />
     <MESSAGE value="BuildTree - mostly finished&#10;Main now parses commands" />
     <MESSAGE value="removed enums" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed enums" />
+    <MESSAGE value="Created generic Agent which gives a random best next move" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created generic Agent which gives a random best next move" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -910,9 +913,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MKAgent/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71845794" vertical-offset="0" max-vertical-offset="856">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.7009346" vertical-offset="0" max-vertical-offset="856">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
           <folding>
+            <element signature="e#815#816#0" expanded="true" />
             <element signature="e#845#846#0" expanded="true" />
           </folding>
         </state>
