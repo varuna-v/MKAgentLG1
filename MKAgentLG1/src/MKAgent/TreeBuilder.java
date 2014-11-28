@@ -1,9 +1,7 @@
 package src.MKAgent;
 
-//import src.MKAgent.Enums.PlayerSide;
+import src.MKAgent.Enums.PlayerSide;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Created by mbax9vv2 on 17/11/14.
@@ -26,8 +24,8 @@ public class TreeBuilder
                try {
                    childBoard = node.state.clone();
                    Side nextPlayer = Kalah.makeMove(childBoard, move);
-                   Node child = new Node(nextPlayer, childBoard);
-                   child.value = childBoard.getSeedsInStore(node.playerMakingMove)- node.state.getSeedsInStore(node.playerMakingMove) + i;
+                   Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
+                   //child.value = childBoard.getSeedsInStore(node.playerMakingMove)- node.state.getSeedsInStore(node.playerMakingMove) + i;
                    kids.add(child);
                } catch (CloneNotSupportedException e) {
                    System.out.println("Evil Clone");
@@ -37,6 +35,13 @@ public class TreeBuilder
         Collections.sort(kids);
         node.children = kids;
 
+        if (depth > 0 && startNode.children != null)
+        {
+            for (Node child : startNode.children)
+            {
+                build(child, depth - 1);
+            }
+        }
     }
 
     public static Board getCurrentBoard()

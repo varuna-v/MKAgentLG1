@@ -1,4 +1,4 @@
-package src.MKAgent;
+//package src.MKAgent;
 /**
  * This class deals with moves on a Kalah board.
  */

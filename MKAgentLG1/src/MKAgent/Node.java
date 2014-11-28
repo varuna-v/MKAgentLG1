@@ -12,6 +12,8 @@ public class Node implements Comparable<Node>
     Board state;
     double value;
     ArrayList<Node> children;
+    Side ourPlayer;
+    final static int extraMoveConstant = 8;
 
     public Node(Side playerMakingMove)
     {
@@ -29,6 +31,26 @@ public class Node implements Comparable<Node>
         children = null;
     }
 
+    public Node(Side playerMakingMove, Board state, Side us)
+    {
+        this.playerMakingMove = playerMakingMove;
+        this.ourPlayer = us;
+        this.state = state;
+        children = null;
+        value = 0;
+        //evaluate();
+    }
+
+    public Node(Side playerMakingMove, Board state, Side us, Node parentNode, int move)
+    {
+        this.playerMakingMove = playerMakingMove;
+        this.ourPlayer = us;
+        this.state = state;
+        children = null;
+        evaluate(parentNode, move);
+    }
+
+
         int propagate(int value)
     {
         int maxValue = Integer.MIN_VALUE;
@@ -38,13 +60,31 @@ public class Node implements Comparable<Node>
         }
         return maxValue;
     }
-    //TODO
 
     void setValue(int newVal)
     {
         value = newVal;
     }
 
+
+    private void evaluate(Node parentNode, int move){
+        
+        this.value = state.getSeedsInStore(this.ourPlayer)-parentNode.state.getSeedsInStore(parentNode.ourPlayer);
+        if(state.getSeedsInStore(this.ourPlayer) == (state.getNoOfHoles()*state.getNoOfHoles()+1))
+            this.value = Integer.MAX_VALUE;
+        else if(state.getSeedsInStore(this.ourPlayer.opposite()) == (state.getNoOfHoles()*state.getNoOfHoles()+1))
+            this.value = Integer.MIN_VALUE;
+        // if this is an extra turn move
+        else if(this.playerMakingMove == parentNode.getPMM())
+            this.value += extraMoveConstant + move;
+        else
+            this.value += move;
+
+    }
+
+    public Side getPMM(){
+        return this.playerMakingMove;
+    }
     public int getValue()
     {
         //TODO
