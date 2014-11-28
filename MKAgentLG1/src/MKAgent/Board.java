@@ -169,6 +169,7 @@ public class Board extends Observable implements Cloneable
 
     	board[indexOfSide(side)][hole] += seeds;
     	this.setChanged();
+        //test
     }
 
     /**
