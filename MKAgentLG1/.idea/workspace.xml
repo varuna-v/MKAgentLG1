@@ -6,31 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="459dd079-933a-4519-ad8f-8dcd72b73156" name="Default" comment="Incorporating provided code">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Agent.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Board$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Board.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/InvalidMessageException.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Kalah.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Main.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Move.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/MsgType.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Node.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Protocol$MoveTurn.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Protocol.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Side$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Side.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Test.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/MKAgentLG1_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Agent.java" afterPath="$PROJECT_DIR$/src/MKAgent/Agent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/MKAgentLG1.iml" afterPath="$PROJECT_DIR$/.idea/MKAgentLG1.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Main.java" afterPath="$PROJECT_DIR$/src/MKAgent/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Node.java" afterPath="$PROJECT_DIR$/src/MKAgent/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.java" afterPath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="459dd079-933a-4519-ad8f-8dcd72b73156" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/MKAgentLG1_jar/MKAgentLG1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MKAgentLG1.iws" />
@@ -691,7 +669,7 @@
       <workItem from="1416591992563" duration="15000" />
       <workItem from="1416838922478" duration="1586000" />
       <workItem from="1416842924487" duration="1037000" />
-      <workItem from="1417178197185" duration="4872000" />
+      <workItem from="1417178197185" duration="5517000" />
     </task>
     <task id="LOCAL-00001" summary="Incorporating provided code">
       <created>1416585834082</created>
@@ -701,11 +679,15 @@
       <created>1416585919392</created>
       <updated>1416585919392</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Getting main to work">
+      <created>1417183124115</created>
+      <updated>1417183124115</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17420000" />
+    <option name="totallyTimeSpent" value="18065000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -729,7 +711,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="25" width="1684" height="1004" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -750,7 +732,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18803419" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18803419" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -775,7 +757,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Incorporating provided code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Incorporating provided code" />
+    <MESSAGE value="Getting main to work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Getting main to work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
