@@ -8,7 +8,7 @@ public class Agent
     public static Move getNextBestMove(Board state, Side side)
     {
         //TODO
-        for (int i = 1; i <= 7; i++)
+        for (int i = 7; i >= 1; i--)
         {
             Move move = new Move(side, i);
             if (Kalah.isLegalMove(state, move))

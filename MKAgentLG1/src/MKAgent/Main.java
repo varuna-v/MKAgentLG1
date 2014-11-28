@@ -62,7 +62,7 @@ public class Main
         {
             String receivedMessage = recvMsg();
             boolean areWeSouth = false;
-            while (!receivedMessage.equals(""))
+            while (!receivedMessage.contains("END"))
             {
                 MsgType messageType = Protocol.getMessageType(receivedMessage);
                 boolean areWeMakingTheNextMove = false;
@@ -98,11 +98,12 @@ public class Main
                     String messageToSend = Protocol.createMoveMsg(move.getHole());
                     sendMsg(messageToSend);
                 }
+                receivedMessage = recvMsg();
             }
         }
         catch (Exception ex)
         {
-            //TODO
+            //sendMsg(ex.getMessage().concat("\n"));
         }
     }
 
