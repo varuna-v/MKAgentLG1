@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="459dd079-933a-4519-ad8f-8dcd72b73156" name="Default" comment="Incorporating provided code">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Node.class" afterPath="$PROJECT_DIR$/src/MKAgent/Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Test.class" afterPath="$PROJECT_DIR$/src/MKAgent/Test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.class" afterPath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Board.java" afterPath="$PROJECT_DIR$/src/MKAgent/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Kalah.java" afterPath="$PROJECT_DIR$/src/MKAgent/Kalah.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Move.java" afterPath="$PROJECT_DIR$/src/MKAgent/Move.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Node.java" afterPath="$PROJECT_DIR$/src/MKAgent/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Side.java" afterPath="$PROJECT_DIR$/src/MKAgent/Side.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Test.java" afterPath="$PROJECT_DIR$/src/MKAgent/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.java" afterPath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="459dd079-933a-4519-ad8f-8dcd72b73156" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MKAgentLG1.iws" />
@@ -634,7 +623,7 @@
       <workItem from="1416838922478" duration="1586000" />
       <workItem from="1416842924487" duration="1037000" />
       <workItem from="1417177889570" duration="2137000" />
-      <workItem from="1417185683401" duration="47000" />
+      <workItem from="1417185683401" duration="90000" />
     </task>
     <task id="LOCAL-00001" summary="Incorporating provided code">
       <created>1416585834082</created>
@@ -644,11 +633,15 @@
       <created>1416585919392</created>
       <updated>1416585919392</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="HURRAYYYYYY!!!!!!!!!">
+      <created>1417185750224</created>
+      <updated>1417185750224</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14732000" />
+    <option name="totallyTimeSpent" value="14775000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -687,6 +680,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -697,7 +691,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -718,7 +711,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Incorporating provided code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Incorporating provided code" />
+    <MESSAGE value="HURRAYYYYYY!!!!!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="HURRAYYYYYY!!!!!!!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
