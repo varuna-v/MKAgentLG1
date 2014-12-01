@@ -10,7 +10,10 @@ import java.io.Reader;
  * The main application class. It also provides methods for communication
  * with the game engine.
  */
-public class Main {
+public class Main
+{
+    private static TreeBuilder treeBuilder;
+
     /**
      * Input from the game engine.
      */
@@ -21,7 +24,8 @@ public class Main {
      *
      * @param msg The message.
      */
-    public static void sendMsg(String msg) {
+    public static void sendMsg(String msg)
+    {
         System.out.print(msg);
         System.out.flush();
     }
@@ -33,11 +37,13 @@ public class Main {
      * @return The message.
      * @throws IOException if there has been an I/O error.
      */
-    public static String recvMsg() throws IOException {
+    public static String recvMsg() throws IOException
+    {
         StringBuilder message = new StringBuilder();
         int newCharacter;
 
-        do {
+        do
+        {
             newCharacter = input.read();
             if (newCharacter == -1)
                 throw new EOFException("Input ended unexpectedly.");
@@ -52,49 +58,60 @@ public class Main {
      *
      * @param args Command line arguments.
      */
-    public static void main(String[] args) {
-        try {
+    public static void main(String[] args)
+    {
+        try
+        {
             String receivedMessage = recvMsg();
             boolean areWeSouth = false;
-            while (!receivedMessage.contains("END")) {
+            while (!receivedMessage.contains("END"))
+            {
                 MsgType messageType = Protocol.getMessageType(receivedMessage);
                 boolean areWeMakingTheNextMove = false;
                 Side nextSide = Side.SOUTH;
-                switch (messageType) {
+                switch (messageType)
+                {
                     case START:
                         areWeMakingTheNextMove = Protocol.interpretStartMsg(receivedMessage);
                         areWeSouth = areWeMakingTheNextMove;
-                        TreeBuilder.initialiseTree();
+                        treeBuilder = new TreeBuilder(areWeSouth ? Side.SOUTH : Side.NORTH);
+                        treeBuilder.start();
                         nextSide = getNextSide(areWeMakingTheNextMove, areWeSouth);
                         break;
                     case STATE:
-                        Protocol.MoveTurn moveTurn = Protocol.interpretStateMsg(receivedMessage, TreeBuilder.getCurrentBoard());
-                        if (moveTurn.move == -1) {
+                        Protocol.MoveTurn moveTurn = Protocol.interpretStateMsg(receivedMessage, treeBuilder.getCurrentBoard());
+                        if (moveTurn.move == -1)
+                        {
                             areWeSouth = false;
                         }
-                        if (moveTurn.end) {
+                        if (moveTurn.end)
+                        {
                             System.exit(0);
                         }
                         areWeMakingTheNextMove = moveTurn.again;
                         nextSide = getNextSide(areWeMakingTheNextMove, areWeSouth);
-                        TreeBuilder.UpdateTree(moveTurn.move, nextSide);
+                        treeBuilder.UpdateTree(moveTurn.move, nextSide);
                         break;
                     case END:
                         System.exit(0);
                 }
-                if (areWeMakingTheNextMove) {
-                    Move move = Agent.getNextBestMove(TreeBuilder.getCurrentBoard(), nextSide);
+                if (areWeMakingTheNextMove)
+                {
+                    Move move = Agent.getNextBestMove(treeBuilder, nextSide);
                     String messageToSend = Protocol.createMoveMsg(move.getHole());
                     sendMsg(messageToSend);
                 }
                 receivedMessage = recvMsg();
             }
-        } catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
             //sendMsg(ex.getMessage().concat("\n"));
         }
     }
 
-    private static Side getNextSide(boolean areWeMakingTheNextMove, boolean areWeSouth) {
+    private static Side getNextSide(boolean areWeMakingTheNextMove, boolean areWeSouth)
+    {
         boolean isSouthPlayingNext = false;
         isSouthPlayingNext = (areWeMakingTheNextMove && areWeSouth) || (!areWeMakingTheNextMove && !areWeSouth);
         return isSouthPlayingNext ? Side.SOUTH : Side.NORTH;
