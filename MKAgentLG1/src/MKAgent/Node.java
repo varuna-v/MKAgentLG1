@@ -6,33 +6,23 @@ import java.util.List;
 /**
  * Created by mbax9vv2 on 21/11/14.
  */
-public class Node implements Comparable<Node>
-{
+public class Node implements Comparable<Node> {
     Side playerMakingMove;
     Board state;
     double value;
     ArrayList<Node> children;
     Side ourPlayer;
     final static int extraMoveConstant = 8;
+    int lastMoveToGetHere;
 
-    public Node(Side playerMakingMove)
-    {
+    public Node(Side playerMakingMove) {
         this.playerMakingMove = playerMakingMove;
-        state = new Board(7,7);
+        state = new Board(7, 7);
         value = Integer.MIN_VALUE;
         children = null;
     }
 
-    public Node(Side playerMakingMove, Board state)
-    {
-        this.playerMakingMove = playerMakingMove;
-        this.state = state;
-        value = Integer.MIN_VALUE;
-        children = null;
-    }
-
-    public Node(Side playerMakingMove, Board state, Side us)
-    {
+    public Node(Side playerMakingMove, Board state, Side us) {
         this.playerMakingMove = playerMakingMove;
         this.ourPlayer = us;
         this.state = state;
@@ -41,55 +31,38 @@ public class Node implements Comparable<Node>
         //evaluate();
     }
 
-    public Node(Side playerMakingMove, Board state, Side us, Node parentNode, int move)
-    {
+    public Node(Side playerMakingMove, Board state, Side us, Node parentNode, int move) {
         this.playerMakingMove = playerMakingMove;
         this.ourPlayer = us;
         this.state = state;
         children = null;
+        lastMoveToGetHere = move;
         evaluate(parentNode, move);
     }
 
+    private void evaluate(Node parentNode, int move) {
 
-        int propagate(int value)
-    {
-        int maxValue = Integer.MIN_VALUE;
-        for(Node child : children)
-        {
-
-        }
-        return maxValue;
-    }
-
-    void setValue(int newVal)
-    {
-        value = newVal;
-    }
-
-
-    private void evaluate(Node parentNode, int move){
-        
-        this.value = state.getSeedsInStore(this.ourPlayer)-parentNode.state.getSeedsInStore(parentNode.ourPlayer);
-        if(state.getSeedsInStore(this.ourPlayer) == (state.getNoOfHoles()*state.getNoOfHoles()+1))
+        this.value = state.getSeedsInStore(this.ourPlayer) - parentNode.state.getSeedsInStore(parentNode.ourPlayer);
+        if (state.getSeedsInStore(this.ourPlayer) == (state.getNoOfHoles() * state.getNoOfHoles() + 1))
             this.value = Integer.MAX_VALUE;
-        else if(state.getSeedsInStore(this.ourPlayer.opposite()) == (state.getNoOfHoles()*state.getNoOfHoles()+1))
+        else if (state.getSeedsInStore(this.ourPlayer.opposite()) == (state.getNoOfHoles() * state.getNoOfHoles() + 1))
             this.value = Integer.MIN_VALUE;
-        // if this is an extra turn move
-        else if(this.playerMakingMove == parentNode.getPMM())
+            // if this is an extra turn move
+        else if (this.playerMakingMove == parentNode.getPMM())
             this.value += extraMoveConstant + move;
         else
             this.value += move;
 
     }
 
-    public Side getPMM(){
+    public Side getPMM() {
         return this.playerMakingMove;
     }
-    public int getValue()
-    {
+
+    public int getValue() {
         //TODO
         if (children == null || children.size() == 0)
-            return  Integer.MIN_VALUE;
+            return Integer.MIN_VALUE;
 
         return 1;
     }

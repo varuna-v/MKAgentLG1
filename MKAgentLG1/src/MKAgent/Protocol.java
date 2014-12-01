@@ -5,15 +5,13 @@ import java.awt.*;
 /**
  * Creates messages to be sent and interprets messages received.
  */
-public class Protocol
-{
+public class Protocol {
     /**
      * An object of this type is returned by interpretStateMsg().
      *
      * @see Protocol#interpretStateMsg(String, Board)
      */
-    public static class MoveTurn
-    {
+    public static class MoveTurn {
         /**
          * "true" if the game is over, "false" otherwise.
          */
@@ -37,8 +35,7 @@ public class Protocol
      * @param hole The hole to pick the seeds from.
      * @return The message as a string.
      */
-    public static String createMoveMsg(int hole)
-    {
+    public static String createMoveMsg(int hole) {
         return "MOVE;" + hole + "\n";
     }
 
@@ -47,8 +44,7 @@ public class Protocol
      *
      * @return The message as a string.
      */
-    public static String createSwapMsg()
-    {
+    public static String createSwapMsg() {
         return "SWAP\n";
     }
 
@@ -61,8 +57,7 @@ public class Protocol
      * @throws InvalidMessageException if the message type cannot be
      *                                 determined.
      */
-    public static MsgType getMessageType(String msg) throws InvalidMessageException
-    {
+    public static MsgType getMessageType(String msg) throws InvalidMessageException {
         if (msg.startsWith("START;"))
             return MsgType.START;
         else if (msg.startsWith("CHANGE;"))
@@ -83,8 +78,7 @@ public class Protocol
      * @throws InvalidMessageException if the message is not well-formed.
      * @see #getMessageType(String)
      */
-    public static boolean interpretStartMsg(String msg) throws InvalidMessageException
-    {
+    public static boolean interpretStartMsg(String msg) throws InvalidMessageException {
         if (msg.charAt(msg.length() - 1) != '\n')
             throw new InvalidMessageException("Message not terminated with 0x0A character.");
 
@@ -111,8 +105,7 @@ public class Protocol
      * @throws InvalidMessageException if the message is not well-formed.
      * @see #getMessageType(String)
      */
-    public static MoveTurn interpretStateMsg(String msg, Board board) throws InvalidMessageException
-    {
+    public static MoveTurn interpretStateMsg(String msg, Board board) throws InvalidMessageException {
         MoveTurn moveTurn = new MoveTurn();
 
         if (msg.charAt(msg.length() - 1) != '\n')
@@ -127,14 +120,10 @@ public class Protocol
         // 1st argument: the move (or swap)
         if (msgParts[1].equals("SWAP"))
             moveTurn.move = -1;
-        else
-        {
-            try
-            {
+        else {
+            try {
                 moveTurn.move = Integer.parseInt(msgParts[1]);
-            }
-            catch (NumberFormatException e)
-            {
+            } catch (NumberFormatException e) {
                 throw new InvalidMessageException("Illegal value for move parameter: " + e.getMessage());
             }
         }
@@ -142,13 +131,12 @@ public class Protocol
         // 2nd argument: the board
         String[] boardParts = msgParts[2].split(",", -1);
         /*if (boardParts.length % 2 != 0)
-    		throw new InvalidMessageException("Malformed board: odd number of entries.");*/
+            throw new InvalidMessageException("Malformed board: odd number of entries.");*/
         if (2 * (board.getNoOfHoles() + 1) != boardParts.length)
             throw new InvalidMessageException("Board dimensions in message ("
                     + boardParts.length + " entries) are not as expected ("
                     + 2 * (board.getNoOfHoles() + 1) + " entries).");
-        try
-        {
+        try {
             // holes on the north side:
             for (int i = 0; i < board.getNoOfHoles(); i++)
                 board.setSeeds(Side.NORTH, i + 1, Integer.parseInt(boardParts[i]));
@@ -159,13 +147,9 @@ public class Protocol
                 board.setSeeds(Side.SOUTH, i + 1, Integer.parseInt(boardParts[i + board.getNoOfHoles() + 1]));
             // southern store:
             board.setSeedsInStore(Side.SOUTH, Integer.parseInt(boardParts[2 * board.getNoOfHoles() + 1]));
-        }
-        catch (NumberFormatException e)
-        {
+        } catch (NumberFormatException e) {
             throw new InvalidMessageException("Illegal value for seed count: " + e.getMessage());
-        }
-        catch (IllegalArgumentException e)
-        {
+        } catch (IllegalArgumentException e) {
             throw new InvalidMessageException("Illegal value for seed count: " + e.getMessage());
         }
 
@@ -175,8 +159,7 @@ public class Protocol
             moveTurn.again = true;
         else if (msgParts[3].equals("OPP\n"))
             moveTurn.again = false;
-        else if (msgParts[3].equals("END\n"))
-        {
+        else if (msgParts[3].equals("END\n")) {
             moveTurn.end = true;
             moveTurn.again = false;
         } else
