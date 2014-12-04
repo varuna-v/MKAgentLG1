@@ -1,6 +1,7 @@
 package src.MKAgent;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -10,11 +11,26 @@ public class Node implements Comparable<Node>
 {
     Side playerMakingMove;
     Board state;
-    double value;
+    int value;
     ArrayList<Node> children;
     Side ourPlayer;
     final static int extraMoveConstant = 8;
     int lastMoveToGetHere;
+    boolean completedAttemptToBuildChildren = false;
+    boolean completedBuildToRequiredDepth = false;
+
+    int interestedInValuesAbove = Integer.MIN_VALUE;
+    int interestedInValuesBelow = Integer.MAX_VALUE;
+
+    private int minNumberOfSeedsForSureWin()
+    {
+        return (state.getNoOfHoles() * state.getNoOfHoles()) + 1;
+    }
+
+    public boolean isMaxNode()
+    {
+        return playerMakingMove == ourPlayer;
+    }
 
     public Node(Side playerMakingMove, Side us)
     {
@@ -25,7 +41,8 @@ public class Node implements Comparable<Node>
         children = null;
     }
 
-    public Node(Side playerMakingMove, Board state, Side us) {
+    public Node(Side playerMakingMove, Board state, Side us)
+    {
         this.playerMakingMove = playerMakingMove;
         this.ourPlayer = us;
         this.state = state;
@@ -41,22 +58,40 @@ public class Node implements Comparable<Node>
         this.state = state;
         children = null;
         lastMoveToGetHere = move;
-        evaluate(parentNode, move);
+        evaluateBasedOnThisNode(parentNode);
     }
 
-    private void evaluate(Node parentNode, int move)
+    public void evaluateBasedOnChildren()
     {
+        if (this.children != null && this.children.size() > 0)
+        {
+            for (Node child : this.children)
+            {
+                child.evaluateBasedOnChildren();
+            }
+            if (isMaxNode())
+            {
+                this.value = children.get(0).value;
+            }
+            else
+            {
+                this.value = children.get(children.size() - 1).value;
+            }
+        }
+    }
 
+    private void evaluateBasedOnThisNode(Node parentNode)
+    {
+        int minNumberOfSeedsForSureWin = minNumberOfSeedsForSureWin();
         this.value = state.getSeedsInStore(this.ourPlayer) - parentNode.state.getSeedsInStore(parentNode.ourPlayer);
-        if (state.getSeedsInStore(this.ourPlayer) == (state.getNoOfHoles() * state.getNoOfHoles() + 1))
+        if (state.getSeedsInStore(this.ourPlayer) == minNumberOfSeedsForSureWin)
             this.value = Integer.MAX_VALUE;
-        else if (state.getSeedsInStore(this.ourPlayer.opposite()) == (state.getNoOfHoles() * state.getNoOfHoles() + 1))
+        else if (state.getSeedsInStore(this.ourPlayer.opposite()) == minNumberOfSeedsForSureWin)
             this.value = Integer.MIN_VALUE;
-            // if this is an extra turn move
         else if (this.playerMakingMove == parentNode.getPMM())
-            this.value += extraMoveConstant + move;
+            this.value += extraMoveConstant + lastMoveToGetHere;
         else
-            this.value += move;
+            this.value += lastMoveToGetHere;
     }
 
     public Side getPMM()
@@ -69,4 +104,5 @@ public class Node implements Comparable<Node>
     {
         return this.value > other.value ? -1 : (this.value < other.value ? 1 : 0);
     }
+
 }

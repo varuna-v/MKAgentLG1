@@ -8,6 +8,11 @@ public class Agent
     public static Move getNextBestMove(TreeBuilder treeBuilder, Side side)
     {
         Node currentNode = treeBuilder.getCurrentNode();
+        if (!currentNode.completedBuildToRequiredDepth)
+        {
+            //TODO implement timer check
+            treeBuilder.quickBuildTreeForCurrentNode();
+        }
         Board state = treeBuilder.getCurrentBoard();
         Move move;
         if (currentNode != null && currentNode.children != null && currentNode.children.size() > 0)

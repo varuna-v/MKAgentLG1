@@ -1,7 +1,5 @@
 package src.MKAgent;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -24,15 +22,30 @@ public class TreeBuilder implements Runnable
         _currentNode = new Node(Side.SOUTH, thisAgentsSide);
     }
 
-    public void buildTree(Node startNode, int depth)
+    private final int desiredTreeDepth = 7;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
+
+    public void quickBuildTreeForCurrentNode()
     {
-        if (depth != 0)
+        stop();
+        buildTree();
+        _currentNode.evaluateBasedOnChildren();
+    }
+
+    public void buildTree()
+    {
+        buildTree(_currentNode, desiredTreeDepth);
+        _currentNode.completedBuildToRequiredDepth = true;
+    }
+
+    private void buildTree(Node startNode, int depth)
+    {
+        if (depth >= 0)
         {
             if (startNode == null)
             {
                 throw new IllegalArgumentException("startNode");
             }
-            if (startNode.children == null)
+            if (!startNode.completedAttemptToBuildChildren)
                 buildNextLayer(startNode);
 
             if (startNode.children != null)
@@ -40,6 +53,33 @@ public class TreeBuilder implements Runnable
                 for (Node child : startNode.children)
                 {
                     buildTree(child, depth - 1);
+                }
+            }
+        }
+    }
+
+    private void pruneTree()
+    {
+        if (_currentNode != null && _currentNode.completedAttemptToBuildChildren && _currentNode.children != null && _currentNode.children.size() > 0)
+        {
+            _currentNode.evaluateBasedOnChildren();
+            for (int counter = 0; counter < _currentNode.children.size(); counter++)
+            {
+                if (_currentNode.isMaxNode())
+                {
+                    if (_currentNode.children.get(counter).value >= _currentNode.interestedInValuesAbove)
+                    {
+                        _currentNode.interestedInValuesAbove = _currentNode.children.get(counter).value;
+                        _currentNode.children.remove(_currentNode.children.get(counter));
+                    }
+                }
+                else
+                {
+                    if (_currentNode.children.get(counter).value <= _currentNode.interestedInValuesBelow)
+                    {
+                        _currentNode.interestedInValuesBelow = _currentNode.children.get(counter).value;
+                        _currentNode.children.remove(_currentNode.children.get(counter));
+                    }
                 }
             }
         }
@@ -59,7 +99,6 @@ public class TreeBuilder implements Runnable
                     childBoard = node.state.clone();
                     Side nextPlayer = Kalah.makeMove(childBoard, move);
                     Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
-                    //child.value = childBoard.getSeedsInStore(node.playerMakingMove)- node.state.getSeedsInStore(node.playerMakingMove) + i;
                     kids.add(child);
                 }
                 catch (CloneNotSupportedException e)
@@ -70,6 +109,7 @@ public class TreeBuilder implements Runnable
         }
         Collections.sort(kids);
         node.children = kids;
+        node.completedAttemptToBuildChildren = true;
     }
 
     public Board getCurrentBoard()
@@ -77,13 +117,14 @@ public class TreeBuilder implements Runnable
         if (_currentNode != null)
         {
             return _currentNode.state;
-        } else
+        }
+        else
             return null;
     }
 
     public void UpdateTree(int move, Side side)
     {
-        pauseProgram(10000);
+        // pauseProgram(15000);
         if (_currentNode != null && _currentNode.children != null)
         {
             for (Node child : _currentNode.children)
@@ -115,7 +156,8 @@ public class TreeBuilder implements Runnable
     {
         try
         {
-            buildTree(_currentNode, 5);
+            buildTree();
+            pruneTree();
         }
         catch (Exception e)
         {
