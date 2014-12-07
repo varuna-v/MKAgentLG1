@@ -15,10 +15,19 @@ public class Agent
         }
         Board state = treeBuilder.getCurrentBoard();
         Move move;
+        int holeNumberToMove = currentNode.children.get(0).lastMoveToGetHere;
+        move = new Move(side, holeNumberToMove);
         if (currentNode != null && currentNode.children != null && currentNode.children.size() > 0)
         {
-            int holeNumberToMove = currentNode.children.get(0).lastMoveToGetHere;
-            move = new Move(side, holeNumberToMove);
+            treeBuilder.alphabetaPruning(currentNode, Integer.MIN_VALUE, Integer.MAX_VALUE);
+            for(Node c:currentNode.children){
+                if(c.pruneValue == (currentNode.pruneValue-currentNode.value)){
+                    holeNumberToMove = c.lastMoveToGetHere;
+                    move = new Move(side, holeNumberToMove);
+                    break;
+                }
+            }
+
         }
         else
         {

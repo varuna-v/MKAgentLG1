@@ -11,6 +11,7 @@ public class Node implements Comparable<Node>
 {
     Side playerMakingMove;
     Board state;
+    int pruneValue;
     int value;
     ArrayList<Node> children;
     Side ourPlayer;
@@ -18,6 +19,8 @@ public class Node implements Comparable<Node>
     int lastMoveToGetHere;
     boolean completedAttemptToBuildChildren = false;
     boolean completedBuildToRequiredDepth = false;
+    boolean isFirstMove = false;
+    boolean isSecondMove = false;
 
     int interestedInValuesAbove = Integer.MIN_VALUE;
     int interestedInValuesBelow = Integer.MAX_VALUE;
@@ -37,8 +40,10 @@ public class Node implements Comparable<Node>
         this.playerMakingMove = playerMakingMove;
         state = new Board(7, 7);
         this.ourPlayer = us;
-        value = Integer.MIN_VALUE;
+        value = 0;
+        pruneValue = value;
         children = null;
+        isFirstMove = true;
     }
 
     public Node(Side playerMakingMove, Board state, Side us)
@@ -48,6 +53,7 @@ public class Node implements Comparable<Node>
         this.state = state;
         children = null;
         value = 0;
+        pruneValue = value;
         //evaluate();
     }
 
@@ -59,6 +65,7 @@ public class Node implements Comparable<Node>
         children = null;
         lastMoveToGetHere = move;
         evaluateBasedOnThisNode(parentNode);
+        pruneValue = value;
     }
 
     public void evaluateBasedOnChildren()
@@ -71,11 +78,11 @@ public class Node implements Comparable<Node>
             }
             if (isMaxNode())
             {
-                this.value = children.get(0).value;
+                this.value += children.get(0).value;
             }
             else
             {
-                this.value = children.get(children.size() - 1).value;
+                this.value += children.get(children.size() - 1).value;
             }
         }
     }
@@ -84,14 +91,24 @@ public class Node implements Comparable<Node>
     {
         int minNumberOfSeedsForSureWin = minNumberOfSeedsForSureWin();
         this.value = state.getSeedsInStore(this.ourPlayer) - parentNode.state.getSeedsInStore(parentNode.ourPlayer);
+        this.value -= (state.getSeedsInStore(this.ourPlayer.opposite()) - parentNode.state.getSeedsInStore(parentNode.ourPlayer.opposite()));
         if (state.getSeedsInStore(this.ourPlayer) == minNumberOfSeedsForSureWin)
             this.value = Integer.MAX_VALUE;
         else if (state.getSeedsInStore(this.ourPlayer.opposite()) == minNumberOfSeedsForSureWin)
             this.value = Integer.MIN_VALUE;
-        else if (this.playerMakingMove == parentNode.getPMM())
-            this.value += extraMoveConstant + lastMoveToGetHere;
-        else
-            this.value += lastMoveToGetHere;
+        else if (this.playerMakingMove == parentNode.getPMM()){
+            if(this.isMaxNode())
+                this.value += (extraMoveConstant + lastMoveToGetHere);
+            else
+                this.value -= (extraMoveConstant + lastMoveToGetHere);
+        }
+
+        else {
+            if(this.isMaxNode())
+                this.value -= lastMoveToGetHere;
+            else
+                this.value += lastMoveToGetHere;
+        }
     }
 
     public Side getPMM()

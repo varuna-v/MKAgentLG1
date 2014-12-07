@@ -2,6 +2,7 @@ package src.MKAgent;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.lang.Math;
 
 /**
  * Created by mbax9vv2 on 17/11/14.
@@ -19,7 +20,7 @@ public class TreeBuilder implements Runnable
 
     public TreeBuilder(Side thisAgentsSide)
     {
-        _currentNode = new Node(Side.SOUTH, thisAgentsSide);
+        _currentNode = new Node(Side.NORTH, thisAgentsSide);
     }
 
     private final int desiredTreeDepth = 7;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
@@ -28,7 +29,7 @@ public class TreeBuilder implements Runnable
     {
         stop();
         buildTree();
-        _currentNode.evaluateBasedOnChildren();
+        //_currentNode.evaluateBasedOnChildren();
     }
 
     public void buildTree()
@@ -57,7 +58,7 @@ public class TreeBuilder implements Runnable
             }
         }
     }
-
+/*
     private void pruneTree()
     {
         if (_currentNode != null && _currentNode.completedAttemptToBuildChildren && _currentNode.children != null && _currentNode.children.size() > 0)
@@ -83,8 +84,33 @@ public class TreeBuilder implements Runnable
                 }
             }
         }
+    }*/
+    public int alphabetaPruning(Node node, int alpha, int beta){
+        if(node.children == null || node.children.size() < 1){
+            node.pruneValue = node.value;
+            return node.value;
+        }
+        if( node.isMaxNode()){
+            for(int i = 0; i < node.children.size(); i++){
+                alpha = Math.max(alpha, alphabetaPruning(node.children.get(i), alpha, beta));
+                if(beta <= alpha)
+                    break;
+            }
+            alpha += node.value;
+            node.pruneValue = alpha;
+            return alpha ;
+        }
+        else{
+            for(int i = node.children.size()-1; i >= 0; i--){
+                beta = Math.min(beta, alphabetaPruning(node.children.get(i), alpha, beta));
+                if(beta <= alpha)
+                    break;
+            }
+            beta+=node.value;
+            node.pruneValue = beta;
+            return beta;
+        }
     }
-
     public void buildNextLayer(Node node)
     {
         ArrayList<Node> kids = new ArrayList<Node>();
@@ -99,12 +125,28 @@ public class TreeBuilder implements Runnable
                     childBoard = node.state.clone();
                     Side nextPlayer = Kalah.makeMove(childBoard, move);
                     Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
+                    if(node.isFirstMove){
+                        child.isSecondMove = true;
+                    }
                     kids.add(child);
                 }
                 catch (CloneNotSupportedException e)
                 {
                     System.out.println("Evil Clone");
                 }
+            }
+        }
+        if(node.isSecondMove){
+            try
+            {
+                Board childBoard = node.state.clone();
+                //Side nextPlayer = Kalah.makeMove(childBoard, move);
+                //Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
+                //kids.add(child);
+            }
+            catch (CloneNotSupportedException e)
+            {
+                System.out.println("Evil Clone");
             }
         }
         Collections.sort(kids);
@@ -124,6 +166,7 @@ public class TreeBuilder implements Runnable
 
     public void UpdateTree(int move, Side side)
     {
+        //side may not be needed
         // pauseProgram(15000);
         if (_currentNode != null && _currentNode.children != null)
         {
@@ -157,7 +200,7 @@ public class TreeBuilder implements Runnable
         try
         {
             buildTree();
-            pruneTree();
+            //pruneTree();
         }
         catch (Exception e)
         {
