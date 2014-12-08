@@ -1,6 +1,9 @@
 //package src.MKAgent;
 package src.MKAgent;
 
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  * Created by mbax2sp2 on 21/11/14.
  */
@@ -65,7 +68,8 @@ public class Test
             }
 
             System.out.println(root.children.get(0).value);
-            System.out.println(root.children.get(0).state);
+            System.out.println(root.children.get(0).state);*/
+            Collections.sort(root.children);
             treeBuilder.UpdateTree(root.children.get(0).lastMoveToGetHere, Side.SOUTH);
             sleepForABit();
 
@@ -87,7 +91,7 @@ public class Test
             {
                 System.out.println(kid.children.get(i).value);
                 System.out.println(kid.children.get(i).state);
-            }*/
+            }
 
 
         }

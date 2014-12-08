@@ -1,8 +1,8 @@
 package src.MKAgent;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.lang.Math;
 
 /**
  * Created by mbax9vv2 on 17/11/14.
@@ -10,8 +10,6 @@ import java.util.Collections;
 public class TreeBuilder implements Runnable
 {
     private Node _currentNode;
-
-    PrintWriter writer;
 
     Thread treeBuilderThread;
 
@@ -23,19 +21,9 @@ public class TreeBuilder implements Runnable
     public TreeBuilder(Side thisAgentsSide)
     {
         _currentNode = new Node(Side.SOUTH, thisAgentsSide);
-
-        try
-        {
-            writer = new PrintWriter("/home/mbax2sp2/illegal.txt", "UTF-8");
-            writer.println("Hi");
-        }
-        catch (Exception e)
-        {
-
-        }
     }
 
-    private final int desiredTreeDepth = 6;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
+    private final int desiredTreeDepth = 3;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
 
     public void quickBuildTreeForCurrentNode()
     {
@@ -71,63 +59,35 @@ public class TreeBuilder implements Runnable
         }
     }
 
-    /*
-        private void pruneTree()
-        {
-            if (_currentNode != null && _currentNode.completedAttemptToBuildChildren && _currentNode.children != null && _currentNode.children.size() > 0)
-            {
-                _currentNode.evaluateBasedOnChildren();
-                for (int counter = 0; counter < _currentNode.children.size(); counter++)
-                {
-                    if (_currentNode.isMaxNode())
-                    {
-                        if (_currentNode.children.get(counter).value >= _currentNode.interestedInValuesAbove)
-                        {
-                            _currentNode.interestedInValuesAbove = _currentNode.children.get(counter).value;
-                            _currentNode.children.remove(_currentNode.children.get(counter));
-                        }
-                    }
-                    else
-                    {
-                        if (_currentNode.children.get(counter).value <= _currentNode.interestedInValuesBelow)
-                        {
-                            _currentNode.interestedInValuesBelow = _currentNode.children.get(counter).value;
-                            _currentNode.children.remove(_currentNode.children.get(counter));
-                        }
-                    }
-                }
-            }
-        }*/
-    public double alphaBetaPruning(Node node, double alpha, double beta)
+    public int alphabetaPruning(Node node, int alpha, int beta)
     {
-        double futureMultiplier = 0.5;
         if (node.children == null || node.children.size() < 1)
         {
-            node.pruneValue = node.heuristicValue;
-            return node.heuristicValue;
+            //node.pruneValue = node.value;
+            return node.pruneValue;
         }
         if (node.isMaxNode())
         {
             for (int i = 0; i < node.children.size(); i++)
             {
-                alpha = Math.max(alpha, alphaBetaPruning(node.children.get(i), alpha, beta));
+                alpha = Math.max(alpha, alphabetaPruning(node.children.get(i), alpha, beta));
                 if (beta <= alpha)
                     break;
             }
-            alpha += node.heuristicValue * futureMultiplier;
-            node.pruneValue = alpha;
+            alpha = node.pruneValue;
+            //node.pruneValue = alpha;
             return alpha;
         }
         else
         {
             for (int i = node.children.size() - 1; i >= 0; i--)
             {
-                beta = Math.min(beta, alphaBetaPruning(node.children.get(i), alpha, beta));
+                beta = Math.min(beta, alphabetaPruning(node.children.get(i), alpha, beta));
                 if (beta <= alpha)
                     break;
             }
-            beta += node.heuristicValue * futureMultiplier;
-            node.pruneValue = beta;
+            beta = node.pruneValue;
+            //node.pruneValue = beta;
             return beta;
         }
     }
@@ -146,6 +106,10 @@ public class TreeBuilder implements Runnable
                     childBoard = node.state.clone();
                     Side nextPlayer = Kalah.makeMove(childBoard, move);
                     Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
+                    if (node.isFirstMove)
+                    {
+                        child.isSecondMove = true;
+                    }
                     kids.add(child);
                 }
                 catch (CloneNotSupportedException e)
@@ -154,15 +118,12 @@ public class TreeBuilder implements Runnable
                 }
             }
         }
-        if (node.depth == 2)
+        if (node.isSecondMove)
         {
             try
             {
-                //give the move for swap the value 8
-                Move move = new Move(node.playerMakingMove, 8);
                 Board childBoard = node.state.clone();
-                //the new node is: the original first player, the new board, our player swaps position,
-                Node child = new Node(node.playerMakingMove, childBoard, node.ourPlayer.opposite(), node, 8);
+                Node child = new Node(Side.NORTH, childBoard, node.ourPlayer.opposite(), node, -1);
                 kids.add(child);
             }
             catch (CloneNotSupportedException e)
@@ -195,17 +156,8 @@ public class TreeBuilder implements Runnable
             {
                 if (child.lastMoveToGetHere == move)
                 {
-
                     stop();
-                    /*
                     _currentNode = child;
-                    writer.println("new Node is");
-                    writer.println(_currentNode.state.toString());
-                    writer.println("kids are");
-                    for(Node c : _currentNode.children){
-                        writer.println(c.state);
-                    }
-                    */
                     treeBuilderThread.run();
                 }
             }
@@ -234,7 +186,7 @@ public class TreeBuilder implements Runnable
         }
         catch (Exception e)
         {
-            System.out.println("Tree builder errored ".concat(e.getMessage()));
+            System.out.println("Tree builder errored".concat(e.getMessage()));
         }
     }
 

@@ -44,12 +44,13 @@ public class Main
             if (newCharacter == -1)
                 throw new EOFException("Input ended unexpectedly.");
             message.append((char) newCharacter);
-        }
-        while ((char) newCharacter != '\n');
+        } while ((char) newCharacter != '\n');
 
         return message.toString();
     }
 
+
+    private static PrintWriter writer = null;
     /**
      * The main method, invoked when the program is started.
      *
@@ -59,6 +60,7 @@ public class Main
     {
         try
         {
+            writer = new PrintWriter("/home/mbax9vv2/Desktop/AIProj/lastMessage.txt", "UTF-8");
             String receivedMessage = recvMsg();
             boolean areWeSouth = false;
             while (!receivedMessage.contains("END"))
@@ -94,17 +96,17 @@ public class Main
                 }
                 if (areWeMakingTheNextMove)
                 {
-                    Move move = Agent.getNextBestMove(treeBuilder, nextSide);
-                    if (Kalah.isLegalMove(treeBuilder.getCurrentBoard(), move))
-                    {
-                        String messageToSend = Protocol.createMoveMsg(move.getHole());
-                        sendMsg(messageToSend);
-                    }
+                    int moveHole = Agent.getNextBestMove(treeBuilder, nextSide);
+                    String messageToSend;
+                    if (moveHole == -1)
+                        messageToSend = Protocol.createSwapMsg();
                     else
-                    {
-                        Protocol.createMoveMsg(Agent.getNextLegalMove(treeBuilder.getCurrentBoard(),nextSide).getHole());
+                        messageToSend = Protocol.createMoveMsg(moveHole);
 
-                    }
+
+                    writeMessageToFile(messageToSend);
+
+                    sendMsg(messageToSend);
                 }
                 receivedMessage = recvMsg();
             }
@@ -113,6 +115,7 @@ public class Main
         {
             //sendMsg(ex.getMessage().concat("\n"));
         }
+        writer.close();
     }
 
     private static Side getNextSide(boolean areWeMakingTheNextMove, boolean areWeSouth)
@@ -120,5 +123,12 @@ public class Main
         boolean isSouthPlayingNext = false;
         isSouthPlayingNext = (areWeMakingTheNextMove && areWeSouth) || (!areWeMakingTheNextMove && !areWeSouth);
         return isSouthPlayingNext ? Side.SOUTH : Side.NORTH;
+    }
+
+
+    private static void writeMessageToFile(String message)
+    {
+        writer.println(message);
+
     }
 }
