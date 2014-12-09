@@ -19,12 +19,16 @@ public class Agent
         move = new Move(side, holeNumberToMove);
         if (currentNode != null && currentNode.children != null && currentNode.children.size() > 0)
         {
-            treeBuilder.alphabetaPruning(currentNode, Integer.MIN_VALUE, Integer.MAX_VALUE);
+            treeBuilder.alphabetaPruning(currentNode, -9999, 9999);
             for(Node c:currentNode.children){
                 if(c.pruneValue == (currentNode.pruneValue-currentNode.value)){
                     holeNumberToMove = c.lastMoveToGetHere;
                     move = new Move(side, holeNumberToMove);
-                    break;
+                    if(Kalah.isLegalMove(currentNode.state, move))
+                        break;
+                    else
+                        move = getNextLegalMove(state, side);
+
                 }
             }
 
