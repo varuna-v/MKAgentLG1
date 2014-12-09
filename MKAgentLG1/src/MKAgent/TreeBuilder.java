@@ -23,7 +23,7 @@ public class TreeBuilder implements Runnable
         _currentNode = new Node(Side.NORTH, thisAgentsSide);
     }
 
-    private final int desiredTreeDepth = 7;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
+    private final int desiredTreeDepth = 5;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
 
     public void quickBuildTreeForCurrentNode()
     {
