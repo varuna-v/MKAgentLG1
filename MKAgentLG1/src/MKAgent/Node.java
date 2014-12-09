@@ -11,8 +11,8 @@ public class Node implements Comparable<Node>
 {
     Side playerMakingMove;
     Board state;
-    int pruneValue;
-    int value;
+    double pruneValue;
+    double value;
     ArrayList<Node> children;
     Side ourPlayer;
     final static int extraMoveConstant = 8;
@@ -97,17 +97,29 @@ public class Node implements Comparable<Node>
         else if (state.getSeedsInStore(this.ourPlayer.opposite()) == minNumberOfSeedsForSureWin)
             this.value = -9999;
         else if (this.playerMakingMove == parentNode.getPMM()){
-            if(this.isMaxNode())
+            if(this.isMaxNode()){
                 this.value += (extraMoveConstant + lastMoveToGetHere);
-            else
+                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
+                    this.value += parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+            }
+            else{
                 this.value -= (extraMoveConstant + lastMoveToGetHere);
+                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
+                    this.value -= parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+            }
         }
-
         else {
-            if(this.isMaxNode())
+            if(this.isMaxNode()){
                 this.value -= lastMoveToGetHere;
-            else
+                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
+                    this.value -= parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+            }
+            else{
                 this.value += lastMoveToGetHere;
+                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
+                    this.value += parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+            }
+
         }
     }
 

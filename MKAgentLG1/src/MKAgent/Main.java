@@ -104,18 +104,6 @@ public class Main
                         sendMsg(messageToSend);
                     }
                     else{
-                        try{
-                            String messageToSend = Protocol.createMoveMsg(move.getHole());
-                            Writer writer = new BufferedWriter(new OutputStreamWriter(
-                                    new FileOutputStream("/home/mbax2sp2/illegal.txt"), "UTF-8"));
-                            writer.write(messageToSend);
-                            writer.write(move.getSide().toString());
-                            writer.write(treeBuilder.getCurrentBoard().toString());
-                            writer.close();
-                        }
-                        catch(Exception e){
-
-                        }
 
                     }
                 }

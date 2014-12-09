@@ -3,6 +3,7 @@ package src.MKAgent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.lang.Math;
+import java.io.*;
 
 /**
  * Created by mbax9vv2 on 17/11/14.
@@ -10,6 +11,8 @@ import java.lang.Math;
 public class TreeBuilder implements Runnable
 {
     private Node _currentNode;
+
+    PrintWriter writer;
 
     Thread treeBuilderThread;
 
@@ -20,10 +23,18 @@ public class TreeBuilder implements Runnable
 
     public TreeBuilder(Side thisAgentsSide)
     {
-        _currentNode = new Node(Side.NORTH, thisAgentsSide);
+        _currentNode = new Node(Side.SOUTH, thisAgentsSide);
+
+        try{
+            writer = new PrintWriter("/home/mbax2sp2/illegal.txt", "UTF-8");
+            writer.println("Hi");
+        }
+        catch(Exception e){
+
+        }
     }
 
-    private final int desiredTreeDepth = 5;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
+    private final int desiredTreeDepth = 6;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
 
     public void quickBuildTreeForCurrentNode()
     {
@@ -85,7 +96,8 @@ public class TreeBuilder implements Runnable
             }
         }
     }*/
-    public int alphabetaPruning(Node node, int alpha, int beta){
+    public double alphabetaPruning(Node node, double alpha, double beta){
+        double futureMultiplier = 0.5;
         if(node.children == null || node.children.size() < 1){
             node.pruneValue = node.value;
             return node.value;
@@ -96,7 +108,7 @@ public class TreeBuilder implements Runnable
                 if(beta <= alpha)
                     break;
             }
-            alpha += node.value;
+            alpha += node.value * futureMultiplier;
             node.pruneValue = alpha;
             return alpha ;
         }
@@ -106,7 +118,7 @@ public class TreeBuilder implements Runnable
                 if(beta <= alpha)
                     break;
             }
-            beta+=node.value;
+            beta+=node.value * futureMultiplier;
             node.pruneValue = beta;
             return beta;
         }
@@ -174,8 +186,17 @@ public class TreeBuilder implements Runnable
             {
                 if (child.lastMoveToGetHere == move)
                 {
+
                     stop();
+                    /*
                     _currentNode = child;
+                    writer.println("new Node is");
+                    writer.println(_currentNode.state.toString());
+                    writer.println("kids are");
+                    for(Node c : _currentNode.children){
+                        writer.println(c.state);
+                    }
+                    */
                     treeBuilderThread.run();
                 }
             }
