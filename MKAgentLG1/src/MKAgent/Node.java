@@ -11,8 +11,8 @@ public class Node implements Comparable<Node>
 {
     Side playerMakingMove;
     Board state;
-    int pruneValue;
-    int value;
+    double pruneValue;
+    double value;
     ArrayList<Node> children;
     Side ourPlayer;
     final static int extraMoveConstant = 8;
@@ -21,6 +21,7 @@ public class Node implements Comparable<Node>
     boolean completedBuildToRequiredDepth = false;
     boolean isFirstMove = false;
     boolean isSecondMove = false;
+    int noMoves;
 
     int interestedInValuesAbove = Integer.MIN_VALUE;
     int interestedInValuesBelow = Integer.MAX_VALUE;
@@ -44,6 +45,7 @@ public class Node implements Comparable<Node>
         pruneValue = value;
         children = null;
         isFirstMove = true;
+        noMoves=0;
     }
 
     public Node(Side playerMakingMove, Board state, Side us)
@@ -66,6 +68,7 @@ public class Node implements Comparable<Node>
         lastMoveToGetHere = move;
         evaluateBasedOnThisNode(parentNode);
         pruneValue = value;
+        this.noMoves=parentNode.noMoves+1;
     }
 
     public void evaluateBasedOnChildren()

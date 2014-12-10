@@ -3,6 +3,7 @@ package src.MKAgent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.lang.Math;
+import java.io.*;
 
 /**
  * Created by mbax9vv2 on 17/11/14.
@@ -10,6 +11,8 @@ import java.lang.Math;
 public class TreeBuilder implements Runnable
 {
     private Node _currentNode;
+
+    PrintWriter writer;
 
     Thread treeBuilderThread;
 
@@ -20,10 +23,18 @@ public class TreeBuilder implements Runnable
 
     public TreeBuilder(Side thisAgentsSide)
     {
-        _currentNode = new Node(Side.NORTH, thisAgentsSide);
+        _currentNode = new Node(Side.SOUTH, thisAgentsSide);
+
+        try{
+            writer = new PrintWriter("/home/illegal.txt", "UTF-8");
+            writer.println("Hi");
+        }
+        catch(Exception e){
+
+        }
     }
 
-    private final int desiredTreeDepth = 7;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
+    private final int desiredTreeDepth = 5;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
 
     public void quickBuildTreeForCurrentNode()
     {
@@ -58,34 +69,35 @@ public class TreeBuilder implements Runnable
             }
         }
     }
-/*
-    private void pruneTree()
-    {
-        if (_currentNode != null && _currentNode.completedAttemptToBuildChildren && _currentNode.children != null && _currentNode.children.size() > 0)
+    /*
+        private void pruneTree()
         {
-            _currentNode.evaluateBasedOnChildren();
-            for (int counter = 0; counter < _currentNode.children.size(); counter++)
+            if (_currentNode != null && _currentNode.completedAttemptToBuildChildren && _currentNode.children != null && _currentNode.children.size() > 0)
             {
-                if (_currentNode.isMaxNode())
+                _currentNode.evaluateBasedOnChildren();
+                for (int counter = 0; counter < _currentNode.children.size(); counter++)
                 {
-                    if (_currentNode.children.get(counter).value >= _currentNode.interestedInValuesAbove)
+                    if (_currentNode.isMaxNode())
                     {
-                        _currentNode.interestedInValuesAbove = _currentNode.children.get(counter).value;
-                        _currentNode.children.remove(_currentNode.children.get(counter));
+                        if (_currentNode.children.get(counter).value >= _currentNode.interestedInValuesAbove)
+                        {
+                            _currentNode.interestedInValuesAbove = _currentNode.children.get(counter).value;
+                            _currentNode.children.remove(_currentNode.children.get(counter));
+                        }
                     }
-                }
-                else
-                {
-                    if (_currentNode.children.get(counter).value <= _currentNode.interestedInValuesBelow)
+                    else
                     {
-                        _currentNode.interestedInValuesBelow = _currentNode.children.get(counter).value;
-                        _currentNode.children.remove(_currentNode.children.get(counter));
+                        if (_currentNode.children.get(counter).value <= _currentNode.interestedInValuesBelow)
+                        {
+                            _currentNode.interestedInValuesBelow = _currentNode.children.get(counter).value;
+                            _currentNode.children.remove(_currentNode.children.get(counter));
+                        }
                     }
                 }
             }
-        }
-    }*/
-    public int alphabetaPruning(Node node, int alpha, int beta){
+        }*/
+    public double alphabetaPruning(Node node, double alpha, double beta){
+        double futureMultiplier= 0.5;
         if(node.children == null || node.children.size() < 1){
             node.pruneValue = node.value;
             return node.value;
@@ -96,7 +108,7 @@ public class TreeBuilder implements Runnable
                 if(beta <= alpha)
                     break;
             }
-            alpha += node.value;
+            alpha += node.value * futureMultiplier;
             node.pruneValue = alpha;
             return alpha ;
         }
@@ -106,7 +118,7 @@ public class TreeBuilder implements Runnable
                 if(beta <= alpha)
                     break;
             }
-            beta+=node.value;
+            beta+=node.value * futureMultiplier;
             node.pruneValue = beta;
             return beta;
         }
@@ -125,9 +137,6 @@ public class TreeBuilder implements Runnable
                     childBoard = node.state.clone();
                     Side nextPlayer = Kalah.makeMove(childBoard, move);
                     Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
-                    if(node.isFirstMove){
-                        child.isSecondMove = true;
-                    }
                     kids.add(child);
                 }
                 catch (CloneNotSupportedException e)
@@ -136,13 +145,13 @@ public class TreeBuilder implements Runnable
                 }
             }
         }
-        if(node.isSecondMove){
+        // TODO this is what we changed on 10/dec
+        if(node.noMoves == 1){
             try
             {
                 Board childBoard = node.state.clone();
-                //Side nextPlayer = Kalah.makeMove(childBoard, move);
-                //Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
-                //kids.add(child);
+                Node child = new Node(node.ourPlayer, childBoard, node.ourPlayer.opposite(), node, 8);
+                kids.add(child);
             }
             catch (CloneNotSupportedException e)
             {
@@ -164,6 +173,7 @@ public class TreeBuilder implements Runnable
             return null;
     }
 
+       // TODO if you uncomment the update bot performs illegal moves
     public void UpdateTree(int move, Side side)
     {
         //side may not be needed
@@ -174,8 +184,9 @@ public class TreeBuilder implements Runnable
             {
                 if (child.lastMoveToGetHere == move)
                 {
+
                     stop();
-                    _currentNode = child;
+                    //_currentNode = child;
                     treeBuilderThread.run();
                 }
             }

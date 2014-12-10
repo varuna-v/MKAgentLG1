@@ -95,10 +95,16 @@ public class Main
                     case END:
                         System.exit(0);
                 }
-                if (areWeMakingTheNextMove)
+                if (areWeMakingTheNextMove)//TODO do we update on our moves?
                 {
                     Move move = Agent.getNextBestMove(treeBuilder, nextSide);
-                    String messageToSend = Protocol.createMoveMsg(move.getHole());
+                    String messageToSend;
+                    if(move.getHole() != 8){
+                        messageToSend = Protocol.createMoveMsg(move.getHole());
+                    }
+                    else{
+                        messageToSend = Protocol.createSwapMsg();
+                    }
                     sendMsg(messageToSend);
                 }
                 receivedMessage = recvMsg();

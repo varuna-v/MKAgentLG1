@@ -19,15 +19,27 @@ public class Agent
         move = new Move(side, holeNumberToMove);
         if (currentNode != null && currentNode.children != null && currentNode.children.size() > 0)
         {
-            treeBuilder.alphabetaPruning(currentNode, Integer.MIN_VALUE, Integer.MAX_VALUE);
-            for(Node c:currentNode.children){
-                if(c.pruneValue == (currentNode.pruneValue-currentNode.value)){
-                    holeNumberToMove = c.lastMoveToGetHere;
-                    move = new Move(side, holeNumberToMove);
-                    break;
+            treeBuilder.alphabetaPruning(currentNode, -9999, 9999);
+            Node favChild = currentNode.children.get(0);
+            if(currentNode.isMaxNode()){
+                for(Node c:currentNode.children){
+                    if(c.pruneValue > favChild.pruneValue){
+                        favChild = c;
+                    }
                 }
             }
-
+            else{
+                for(Node c:currentNode.children){
+                    if(c.pruneValue < favChild.pruneValue){
+                        favChild = c;
+                    }
+                }
+            }
+            holeNumberToMove = favChild.lastMoveToGetHere;
+            move = new Move(side, holeNumberToMove);
+            if(!Kalah.isLegalMove(currentNode.state, move)){
+                move = getNextLegalMove(state, side);
+            }
         }
         else
         {
