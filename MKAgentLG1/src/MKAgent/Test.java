@@ -22,32 +22,32 @@ public class Test
             sleepForABit();
 
             root = treeBuilder.getCurrentNode();
-            System.out.println("Board " + root.state + "move No = " + root.noMoves + "\n has " + root.children.size() + " kids");
+            System.out.println("Board " + root.state + "move No = " + root.depth + "\n has " + root.children.size() + " kids");
             for (int i = 0; i < root.children.size(); i++)
             {
-                System.out.println("Value = " + root.children.get(i).value +  "move No = " + root.children.get(i).noMoves  + " | PruneValue = " +root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
+                System.out.println("Value = " + root.children.get(i).value +  "move No = " + root.children.get(i).depth  + " | PruneValue = " +root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
                 System.out.println(root.children.get(i).state);
             }
-            treeBuilder.alphabetaPruning(root, -9999999, +9999999);
+            treeBuilder.alphaBetaPruning(root, -9999999, +9999999);
             Move move = Agent.getNextBestMove(treeBuilder, root.getPMM());
             treeBuilder.UpdateTree(move.getHole(), root.getPMM());
             root = treeBuilder.getCurrentNode();
-            System.out.println("Value = " + root.value + "move No = " + root.noMoves +" | PruneValue = " +root.pruneValue);
+            System.out.println("Value = " + root.value + "move No = " + root.depth +" | PruneValue = " +root.pruneValue);
             System.out.println("Board " + root.state + "\n has " + root.children.size() + " kids");
             for (int i = 0; i < root.children.size(); i++)
             {
-                System.out.println("Value = " + root.children.get(i).value +  "move No = " + root.children.get(i).noMoves  + " | PruneValue = " +root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
+                System.out.println("Value = " + root.children.get(i).value +  "move No = " + root.children.get(i).depth  + " | PruneValue = " +root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
                 System.out.println(root.children.get(i).state);
             }
-            treeBuilder.alphabetaPruning(root, -9999999, +9999999);
+            treeBuilder.alphaBetaPruning(root, -9999999, +9999999);
             move = Agent.getNextBestMove(treeBuilder, root.getPMM());
             treeBuilder.UpdateTree(move.getHole(), root.getPMM());
             root = treeBuilder.getCurrentNode();
-            System.out.println("Value = " + root.value + "move No = " + root.noMoves +" | PruneValue = " +root.pruneValue);
+            System.out.println("Value = " + root.value + "move No = " + root.depth +" | PruneValue = " +root.pruneValue);
             System.out.println("Board " + root.state + "\n has " + root.children.size() + " kids");
             for (int i = 0; i < root.children.size(); i++)
             {
-                System.out.println("Value = " + root.children.get(i).value +  "move No = " + root.children.get(i).noMoves  + " | PruneValue = " +root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
+                System.out.println("Value = " + root.children.get(i).value +  "move No = " + root.children.get(i).depth  + " | PruneValue = " +root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
                 System.out.println(root.children.get(i).state);
             }
 

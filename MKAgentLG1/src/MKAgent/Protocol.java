@@ -1,7 +1,5 @@
 package src.MKAgent;
 
-import java.awt.*;
-
 /**
  * Creates messages to be sent and interprets messages received.
  */

@@ -19,7 +19,7 @@ public class Agent
         move = new Move(side, holeNumberToMove);
         if (currentNode != null && currentNode.children != null && currentNode.children.size() > 0)
         {
-            treeBuilder.alphabetaPruning(currentNode, -9999, 9999);
+            treeBuilder.alphaBetaPruning(currentNode, -9999, 9999);
             Node favChild = currentNode.children.get(0);
             if(currentNode.isMaxNode()){
                 for(Node c:currentNode.children){

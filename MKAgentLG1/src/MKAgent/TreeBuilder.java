@@ -1,9 +1,8 @@
 package src.MKAgent;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.lang.Math;
-import java.io.*;
 
 /**
  * Created by mbax9vv2 on 17/11/14.
@@ -96,7 +95,7 @@ public class TreeBuilder implements Runnable
             }
         }
     }*/
-    public double alphabetaPruning(Node node, double alpha, double beta){
+    public double alphaBetaPruning(Node node, double alpha, double beta){
         double futureMultiplier = 0.5;
         if(node.children == null || node.children.size() < 1){
             node.pruneValue = node.value;
@@ -104,7 +103,7 @@ public class TreeBuilder implements Runnable
         }
         if( node.isMaxNode()){
             for(int i = 0; i < node.children.size(); i++){
-                alpha = Math.max(alpha, alphabetaPruning(node.children.get(i), alpha, beta));
+                alpha = Math.max(alpha, alphaBetaPruning(node.children.get(i), alpha, beta));
                 if(beta <= alpha)
                     break;
             }
@@ -114,7 +113,7 @@ public class TreeBuilder implements Runnable
         }
         else{
             for(int i = node.children.size()-1; i >= 0; i--){
-                beta = Math.min(beta, alphabetaPruning(node.children.get(i), alpha, beta));
+                beta = Math.min(beta, alphaBetaPruning(node.children.get(i), alpha, beta));
                 if(beta <= alpha)
                     break;
             }
@@ -137,9 +136,6 @@ public class TreeBuilder implements Runnable
                     childBoard = node.state.clone();
                     Side nextPlayer = Kalah.makeMove(childBoard, move);
                     Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
-                    if(node.isFirstMove){
-                        child.isSecondMove = true;
-                    }
                     kids.add(child);
                 }
                 catch (CloneNotSupportedException e)
@@ -148,13 +144,16 @@ public class TreeBuilder implements Runnable
                 }
             }
         }
-        if(node.isSecondMove){
+        if(node.depth == 2)
+        {
             try
             {
+                //give the move for swap the value 8
+                Move move = new Move(node.playerMakingMove, 8);
                 Board childBoard = node.state.clone();
-                //Side nextPlayer = Kalah.makeMove(childBoard, move);
-                //Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
-                //kids.add(child);
+                //the new node is: the original first player, the new board, our player swaps position,
+                Node child = new Node(node.playerMakingMove, childBoard, node.ourPlayer.opposite(),node , 8);
+                kids.add(child);
             }
             catch (CloneNotSupportedException e)
             {
@@ -225,7 +224,7 @@ public class TreeBuilder implements Runnable
         }
         catch (Exception e)
         {
-            System.out.println("Tree builder errored".concat(e.getMessage()));
+            System.out.println("Tree builder errored ".concat(e.getMessage()));
         }
     }
 
