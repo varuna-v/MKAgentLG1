@@ -21,23 +21,30 @@ public class Agent
         {
             treeBuilder.alphaBetaPruning(currentNode, -9999, 9999);
             Node favChild = currentNode.children.get(0);
-            if(currentNode.isMaxNode()){
-                for(Node c:currentNode.children){
-                    if(c.pruneValue > favChild.pruneValue){
+            if (currentNode.isMaxNode())
+            {
+                for (Node c : currentNode.children)
+                {
+                    if (c.pruneValue > favChild.pruneValue)
+                    {
                         favChild = c;
                     }
                 }
             }
-            else{
-                for(Node c:currentNode.children){
-                    if(c.pruneValue < favChild.pruneValue){
+            else
+            {
+                for (Node c : currentNode.children)
+                {
+                    if (c.pruneValue < favChild.pruneValue)
+                    {
                         favChild = c;
                     }
                 }
             }
             holeNumberToMove = favChild.lastMoveToGetHere;
             move = new Move(side, holeNumberToMove);
-            if(!Kalah.isLegalMove(currentNode.state, move)){
+            if (!Kalah.isLegalMove(currentNode.state, move))
+            {
                 move = getNextLegalMove(state, side);
             }
         }

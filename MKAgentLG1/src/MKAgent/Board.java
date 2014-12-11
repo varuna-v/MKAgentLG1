@@ -12,7 +12,8 @@ import java.util.Observable;
  * <BR>
  * Initially, there is the same number of "seeds" in each hole.
  */
-public class Board extends Observable implements Cloneable {
+public class Board extends Observable implements Cloneable
+{
     /**
      * @see #board
      */
@@ -41,8 +42,10 @@ public class Board extends Observable implements Cloneable {
      * @param side A side of the board.
      * @return The index of side "side" for the first dimension of "board".
      */
-    private static int indexOfSide(Side side) {
-        switch (side) {
+    private static int indexOfSide(Side side)
+    {
+        switch (side)
+        {
             case NORTH:
                 return NORTH_ROW;
             case SOUTH:
@@ -62,7 +65,8 @@ public class Board extends Observable implements Cloneable {
      * @throws IllegalArgumentException if any of the arguments is outside of
      *                                  the valid range.
      */
-    public Board(int holes, int seeds) throws IllegalArgumentException {
+    public Board(int holes, int seeds) throws IllegalArgumentException
+    {
         if (holes < 1)
             throw new IllegalArgumentException("There has to be at least one hole, but " + holes + " were requested.");
         if (seeds < 0)
@@ -71,7 +75,8 @@ public class Board extends Observable implements Cloneable {
         this.holes = holes;
         board = new int[2][holes + 1]; // WARNING: potential integer overflow here!
 
-        for (int i = 1; i <= holes; i++) {
+        for (int i = 1; i <= holes; i++)
+        {
             board[NORTH_ROW][i] = seeds;
             board[SOUTH_ROW][i] = seeds;
         }
@@ -84,11 +89,13 @@ public class Board extends Observable implements Cloneable {
      * @param original The board to copy.
      * @see #clone()
      */
-    public Board(Board original) {
+    public Board(Board original)
+    {
         holes = original.holes;
         board = new int[2][holes + 1];
 
-        for (int i = 0; i <= holes; i++) {
+        for (int i = 0; i <= holes; i++)
+        {
             board[NORTH_ROW][i] = original.board[NORTH_ROW][i];
             board[SOUTH_ROW][i] = original.board[SOUTH_ROW][i];
         }
@@ -102,14 +109,16 @@ public class Board extends Observable implements Cloneable {
      * @see #Board(Board)
      */
     @Override
-    public Board clone() throws CloneNotSupportedException {
+    public Board clone() throws CloneNotSupportedException
+    {
         return new Board(this);
     }
 
     /**
      * @return The number of holes per side (will be >= 1).
      */
-    public int getNoOfHoles() {
+    public int getNoOfHoles()
+    {
         return holes;
     }
 
@@ -121,7 +130,8 @@ public class Board extends Observable implements Cloneable {
      * @return The number of seeds in hole "hole" on side "side".
      * @throws IllegalArgumentException if the hole number is invalid.
      */
-    public int getSeeds(Side side, int hole) throws IllegalArgumentException {
+    public int getSeeds(Side side, int hole) throws IllegalArgumentException
+    {
         if (hole < 1 || hole > holes)
             throw new IllegalArgumentException("Hole number must be between 1 and " + (board[NORTH_ROW].length - 1) + " but was " + hole + ".");
 
@@ -137,7 +147,8 @@ public class Board extends Observable implements Cloneable {
      * @throws IllegalArgumentException if any of the arguments is outside of
      *                                  the valid range.
      */
-    public void setSeeds(Side side, int hole, int seeds) throws IllegalArgumentException {
+    public void setSeeds(Side side, int hole, int seeds) throws IllegalArgumentException
+    {
         if (hole < 1 || hole > holes)
             throw new IllegalArgumentException("Hole number must be between 1 and " + (board[NORTH_ROW].length - 1) + " but was " + hole + ".");
         if (seeds < 0)
@@ -156,7 +167,8 @@ public class Board extends Observable implements Cloneable {
      * @throws IllegalArgumentException if any of the arguments is outside of
      *                                  the valid range.
      */
-    public void addSeeds(Side side, int hole, int seeds) throws IllegalArgumentException {
+    public void addSeeds(Side side, int hole, int seeds) throws IllegalArgumentException
+    {
         if (hole < 1 || hole > holes)
             throw new IllegalArgumentException("Hole number must be between 1 and " + (board[NORTH_ROW].length - 1) + " but was " + hole + ".");
         if (seeds < 0)
@@ -176,7 +188,8 @@ public class Board extends Observable implements Cloneable {
      * side "side".
      * @throws IllegalArgumentException if the hole number is invalid.
      */
-    public int getSeedsOp(Side side, int hole) throws IllegalArgumentException {
+    public int getSeedsOp(Side side, int hole) throws IllegalArgumentException
+    {
         if (hole < 1 || hole > holes)
             throw new IllegalArgumentException("Hole number must be between 1 and " + holes + " but was " + hole + ".");
 
@@ -193,7 +206,8 @@ public class Board extends Observable implements Cloneable {
      * @throws IllegalArgumentException if any of the arguments is outside of
      *                                  the valid range.
      */
-    public void setSeedsOp(Side side, int hole, int seeds) throws IllegalArgumentException {
+    public void setSeedsOp(Side side, int hole, int seeds) throws IllegalArgumentException
+    {
         if (hole < 1 || hole > holes)
             throw new IllegalArgumentException("Hole number must be between 1 and " + (board[NORTH_ROW].length - 1) + " but was " + hole + ".");
         if (seeds < 0)
@@ -213,7 +227,8 @@ public class Board extends Observable implements Cloneable {
      * @throws IllegalArgumentException if any of the arguments is outside of
      *                                  the valid range.
      */
-    public void addSeedsOp(Side side, int hole, int seeds) throws IllegalArgumentException {
+    public void addSeedsOp(Side side, int hole, int seeds) throws IllegalArgumentException
+    {
         if (hole < 1 || hole > holes)
             throw new IllegalArgumentException("Hole number must be between 1 and " + (board[NORTH_ROW].length - 1) + " but was " + hole + ".");
         if (seeds < 0)
@@ -229,7 +244,8 @@ public class Board extends Observable implements Cloneable {
      * @param side The side the store is located on.
      * @return The number of seeds in the store.
      */
-    public int getSeedsInStore(Side side) {
+    public int getSeedsInStore(Side side)
+    {
         return board[indexOfSide(side)][0];
     }
 
@@ -240,7 +256,8 @@ public class Board extends Observable implements Cloneable {
      * @param seeds The number of seeds that shall be in the store afterwards (>= 0).
      * @throws IllegalArgumentException if the number of seeds is invalid.
      */
-    public void setSeedsInStore(Side side, int seeds) throws IllegalArgumentException {
+    public void setSeedsInStore(Side side, int seeds) throws IllegalArgumentException
+    {
         if (seeds < 0)
             throw new IllegalArgumentException("There has to be a non-negative number of seeds, but " + seeds + " were requested.");
 
@@ -255,7 +272,8 @@ public class Board extends Observable implements Cloneable {
      * @param seeds The number (>= 0) of seeds to put into (add to) the store.
      * @throws IllegalArgumentException if the number of seeds is invalid.
      */
-    public void addSeedsToStore(Side side, int seeds) throws IllegalArgumentException {
+    public void addSeedsToStore(Side side, int seeds) throws IllegalArgumentException
+    {
         if (seeds < 0)
             throw new IllegalArgumentException("There has to be a non-negative number of seeds, but " + seeds + " were requested.");
 
@@ -264,7 +282,8 @@ public class Board extends Observable implements Cloneable {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         StringBuilder boardString = new StringBuilder();
 
         boardString.append(board[NORTH_ROW][0] + "  --");

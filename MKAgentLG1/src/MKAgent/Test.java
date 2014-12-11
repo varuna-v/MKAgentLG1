@@ -25,29 +25,29 @@ public class Test
             System.out.println("Board " + root.state + "move No = " + root.depth + "\n has " + root.children.size() + " kids");
             for (int i = 0; i < root.children.size(); i++)
             {
-                System.out.println("Value = " + root.children.get(i).value +  "move No = " + root.children.get(i).depth  + " | PruneValue = " +root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
+                System.out.println("Value = " + root.children.get(i).heuristicValue + "move No = " + root.children.get(i).depth + " | PruneValue = " + root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
                 System.out.println(root.children.get(i).state);
             }
             treeBuilder.alphaBetaPruning(root, -9999999, +9999999);
             Move move = Agent.getNextBestMove(treeBuilder, root.getPMM());
             treeBuilder.UpdateTree(move.getHole(), root.getPMM());
             root = treeBuilder.getCurrentNode();
-            System.out.println("Value = " + root.value + "move No = " + root.depth +" | PruneValue = " +root.pruneValue);
+            System.out.println("Value = " + root.heuristicValue + "move No = " + root.depth + " | PruneValue = " + root.pruneValue);
             System.out.println("Board " + root.state + "\n has " + root.children.size() + " kids");
             for (int i = 0; i < root.children.size(); i++)
             {
-                System.out.println("Value = " + root.children.get(i).value +  "move No = " + root.children.get(i).depth  + " | PruneValue = " +root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
+                System.out.println("Value = " + root.children.get(i).heuristicValue + "move No = " + root.children.get(i).depth + " | PruneValue = " + root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
                 System.out.println(root.children.get(i).state);
             }
             treeBuilder.alphaBetaPruning(root, -9999999, +9999999);
             move = Agent.getNextBestMove(treeBuilder, root.getPMM());
             treeBuilder.UpdateTree(move.getHole(), root.getPMM());
             root = treeBuilder.getCurrentNode();
-            System.out.println("Value = " + root.value + "move No = " + root.depth +" | PruneValue = " +root.pruneValue);
+            System.out.println("Value = " + root.heuristicValue + "move No = " + root.depth + " | PruneValue = " + root.pruneValue);
             System.out.println("Board " + root.state + "\n has " + root.children.size() + " kids");
             for (int i = 0; i < root.children.size(); i++)
             {
-                System.out.println("Value = " + root.children.get(i).value +  "move No = " + root.children.get(i).depth  + " | PruneValue = " +root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
+                System.out.println("Value = " + root.children.get(i).heuristicValue + "move No = " + root.children.get(i).depth + " | PruneValue = " + root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
                 System.out.println(root.children.get(i).state);
             }
 
@@ -122,7 +122,7 @@ public class Test
         System.out.println(root.children.size());
         for (int i = 0; i < root.children.size(); i++)
         {
-            System.out.println(root.children.get(i).value);
+            System.out.println(root.children.get(i).heuristicValue);
             System.out.println(root.children.get(i).state);
         }
 
@@ -130,13 +130,13 @@ public class Test
         treeBuilder.buildNextLayer(kid);
 
         System.out.println("best child is");
-        System.out.println(kid.value);
+        System.out.println(kid.heuristicValue);
         System.out.println(kid.state);
 
         System.out.println("kids of best are");
         for (int i = 0; i < kid.children.size(); i++)
         {
-            System.out.println(kid.children.get(i).value);
+            System.out.println(kid.children.get(i).heuristicValue);
             System.out.println(kid.children.get(i).state);
         }
     }

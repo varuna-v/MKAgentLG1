@@ -44,7 +44,8 @@ public class Main
             if (newCharacter == -1)
                 throw new EOFException("Input ended unexpectedly.");
             message.append((char) newCharacter);
-        } while ((char) newCharacter != '\n');
+        }
+        while ((char) newCharacter != '\n');
 
         return message.toString();
     }
@@ -94,11 +95,13 @@ public class Main
                 if (areWeMakingTheNextMove)
                 {
                     Move move = Agent.getNextBestMove(treeBuilder, nextSide);
-                    if(Kalah.isLegalMove(treeBuilder.getCurrentBoard(), move)){
+                    if (Kalah.isLegalMove(treeBuilder.getCurrentBoard(), move))
+                    {
                         String messageToSend = Protocol.createMoveMsg(move.getHole());
                         sendMsg(messageToSend);
                     }
-                    else{
+                    else
+                    {
 
                     }
                 }

@@ -24,11 +24,13 @@ public class TreeBuilder implements Runnable
     {
         _currentNode = new Node(Side.SOUTH, thisAgentsSide);
 
-        try{
+        try
+        {
             writer = new PrintWriter("/home/mbax2sp2/illegal.txt", "UTF-8");
             writer.println("Hi");
         }
-        catch(Exception e){
+        catch (Exception e)
+        {
 
         }
     }
@@ -68,60 +70,68 @@ public class TreeBuilder implements Runnable
             }
         }
     }
-/*
-    private void pruneTree()
-    {
-        if (_currentNode != null && _currentNode.completedAttemptToBuildChildren && _currentNode.children != null && _currentNode.children.size() > 0)
+
+    /*
+        private void pruneTree()
         {
-            _currentNode.evaluateBasedOnChildren();
-            for (int counter = 0; counter < _currentNode.children.size(); counter++)
+            if (_currentNode != null && _currentNode.completedAttemptToBuildChildren && _currentNode.children != null && _currentNode.children.size() > 0)
             {
-                if (_currentNode.isMaxNode())
+                _currentNode.evaluateBasedOnChildren();
+                for (int counter = 0; counter < _currentNode.children.size(); counter++)
                 {
-                    if (_currentNode.children.get(counter).value >= _currentNode.interestedInValuesAbove)
+                    if (_currentNode.isMaxNode())
                     {
-                        _currentNode.interestedInValuesAbove = _currentNode.children.get(counter).value;
-                        _currentNode.children.remove(_currentNode.children.get(counter));
+                        if (_currentNode.children.get(counter).value >= _currentNode.interestedInValuesAbove)
+                        {
+                            _currentNode.interestedInValuesAbove = _currentNode.children.get(counter).value;
+                            _currentNode.children.remove(_currentNode.children.get(counter));
+                        }
                     }
-                }
-                else
-                {
-                    if (_currentNode.children.get(counter).value <= _currentNode.interestedInValuesBelow)
+                    else
                     {
-                        _currentNode.interestedInValuesBelow = _currentNode.children.get(counter).value;
-                        _currentNode.children.remove(_currentNode.children.get(counter));
+                        if (_currentNode.children.get(counter).value <= _currentNode.interestedInValuesBelow)
+                        {
+                            _currentNode.interestedInValuesBelow = _currentNode.children.get(counter).value;
+                            _currentNode.children.remove(_currentNode.children.get(counter));
+                        }
                     }
                 }
             }
-        }
-    }*/
-    public double alphaBetaPruning(Node node, double alpha, double beta){
+        }*/
+    public double alphaBetaPruning(Node node, double alpha, double beta)
+    {
         double futureMultiplier = 0.5;
-        if(node.children == null || node.children.size() < 1){
-            node.pruneValue = node.value;
-            return node.value;
+        if (node.children == null || node.children.size() < 1)
+        {
+            node.pruneValue = node.heuristicValue;
+            return node.heuristicValue;
         }
-        if( node.isMaxNode()){
-            for(int i = 0; i < node.children.size(); i++){
+        if (node.isMaxNode())
+        {
+            for (int i = 0; i < node.children.size(); i++)
+            {
                 alpha = Math.max(alpha, alphaBetaPruning(node.children.get(i), alpha, beta));
-                if(beta <= alpha)
+                if (beta <= alpha)
                     break;
             }
-            alpha += node.value * futureMultiplier;
+            alpha += node.heuristicValue * futureMultiplier;
             node.pruneValue = alpha;
-            return alpha ;
+            return alpha;
         }
-        else{
-            for(int i = node.children.size()-1; i >= 0; i--){
+        else
+        {
+            for (int i = node.children.size() - 1; i >= 0; i--)
+            {
                 beta = Math.min(beta, alphaBetaPruning(node.children.get(i), alpha, beta));
-                if(beta <= alpha)
+                if (beta <= alpha)
                     break;
             }
-            beta+=node.value * futureMultiplier;
+            beta += node.heuristicValue * futureMultiplier;
             node.pruneValue = beta;
             return beta;
         }
     }
+
     public void buildNextLayer(Node node)
     {
         ArrayList<Node> kids = new ArrayList<Node>();
@@ -144,7 +154,7 @@ public class TreeBuilder implements Runnable
                 }
             }
         }
-        if(node.depth == 2)
+        if (node.depth == 2)
         {
             try
             {
@@ -152,7 +162,7 @@ public class TreeBuilder implements Runnable
                 Move move = new Move(node.playerMakingMove, 8);
                 Board childBoard = node.state.clone();
                 //the new node is: the original first player, the new board, our player swaps position,
-                Node child = new Node(node.playerMakingMove, childBoard, node.ourPlayer.opposite(),node , 8);
+                Node child = new Node(node.playerMakingMove, childBoard, node.ourPlayer.opposite(), node, 8);
                 kids.add(child);
             }
             catch (CloneNotSupportedException e)

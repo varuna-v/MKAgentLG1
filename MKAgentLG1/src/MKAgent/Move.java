@@ -3,7 +3,8 @@ package src.MKAgent;
 /**
  * Represents a move (not a turn) in the Kalah game.
  */
-public class Move {
+public class Move
+{
     /**
      * The side of the board the player making the move is playing on.
      */
@@ -22,7 +23,8 @@ public class Move {
      *             the move and distributed. It has to be >= 1.
      * @throws IllegalArgumentException if the hole number is not >= 1.
      */
-    public Move(Side side, int hole) throws IllegalArgumentException {
+    public Move(Side side, int hole) throws IllegalArgumentException
+    {
         if (hole < 1)
             throw new IllegalArgumentException("Hole numbers must be >= 1, but " + hole + " was given.");
         this.side = side;
@@ -32,7 +34,8 @@ public class Move {
     /**
      * @return The side of the board the player making the move is playing on.
      */
-    public Side getSide() {
+    public Side getSide()
+    {
         return side;
     }
 
@@ -40,7 +43,8 @@ public class Move {
      * @return The hole from which seeds are picked at the beginning of the
      * move and distributed. It will be >= 1.
      */
-    public int getHole() {
+    public int getHole()
+    {
         return hole;
     }
 }

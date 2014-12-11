@@ -7,11 +7,12 @@ import java.util.ArrayList;
  */
 public class Node implements Comparable<Node>
 {
-    Side playerMakingMove;
-    Board state;
-    double pruneValue;
-    double value;
-    ArrayList<Node> children;
+    private static final double SWAP_CONSTANT = 99; // a constant for the value of a swap node
+    Side playerMakingMove; // the player currently making the move on this node
+    Board state; // the state of the board in the current node
+    double pruneValue; // the pruning value of the node
+    double heuristicValue; // the value of the current node
+    ArrayList<Node> children; //
     Side ourPlayer;
     final static int extraMoveConstant = 8;
     int lastMoveToGetHere;
@@ -37,8 +38,8 @@ public class Node implements Comparable<Node>
         this.playerMakingMove = playerMakingMove;
         state = new Board(7, 7);
         this.ourPlayer = us;
-        value = 0;
-        pruneValue = value;
+        heuristicValue = 0;
+        pruneValue = heuristicValue;
         children = null;
         depth = 1;
     }
@@ -49,8 +50,8 @@ public class Node implements Comparable<Node>
         this.ourPlayer = us;
         this.state = state;
         children = null;
-        value = 0;
-        pruneValue = value;
+        heuristicValue = 0;
+        pruneValue = heuristicValue;
         //evaluate();
     }
 
@@ -62,8 +63,8 @@ public class Node implements Comparable<Node>
         children = null;
         lastMoveToGetHere = move;
         evaluateBasedOnThisNode(parentNode);
-        pruneValue = value;
-        this.depth = parentNode.depth +1;
+        pruneValue = heuristicValue;
+        this.depth = parentNode.depth + 1;
     }
 
     public void evaluateBasedOnChildren()
@@ -76,48 +77,62 @@ public class Node implements Comparable<Node>
             }
             if (isMaxNode())
             {
-                this.value += children.get(0).value;
+                this.heuristicValue += children.get(0).heuristicValue;
             }
             else
             {
-                this.value += children.get(children.size() - 1).value;
+                this.heuristicValue += children.get(children.size() - 1).heuristicValue;
             }
         }
     }
 
+    // this errors out if the move# is for swap
     private void evaluateBasedOnThisNode(Node parentNode)
     {
         int minNumberOfSeedsForSureWin = minNumberOfSeedsForSureWin();
-        this.value = state.getSeedsInStore(this.ourPlayer) - parentNode.state.getSeedsInStore(parentNode.ourPlayer);
-        this.value -= (state.getSeedsInStore(this.ourPlayer.opposite()) - parentNode.state.getSeedsInStore(parentNode.ourPlayer.opposite()));
-        if (state.getSeedsInStore(this.ourPlayer) == minNumberOfSeedsForSureWin)
-            this.value = 9999;
-        else if (state.getSeedsInStore(this.ourPlayer.opposite()) == minNumberOfSeedsForSureWin)
-            this.value = -9999;
-        else if (this.playerMakingMove == parentNode.getPMM()){
-            if(this.isMaxNode()){
-                this.value += (extraMoveConstant + lastMoveToGetHere);
-                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0) // this errors out if the move# is for swap
-                    this.value += parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
-            }
-            else{
-                this.value -= (extraMoveConstant + lastMoveToGetHere);
-                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
-                    this.value -= parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
-            }
+        this.heuristicValue = state.getSeedsInStore(this.ourPlayer) - parentNode.state.getSeedsInStore(parentNode.ourPlayer);
+        this.heuristicValue -= (state.getSeedsInStore(this.ourPlayer.opposite()) - parentNode.state.getSeedsInStore(parentNode.ourPlayer.opposite()));
+        if (this.lastMoveToGetHere == 8)
+        {
+            this.heuristicValue = SWAP_CONSTANT;
         }
-        else {
-            if(this.isMaxNode()){
-                this.value -= lastMoveToGetHere;
-                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
-                    this.value -= parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+        else
+        {
+            if (state.getSeedsInStore(this.ourPlayer) == minNumberOfSeedsForSureWin)
+                this.heuristicValue = 9999; // set the heuristic value to a silly number if it is a garunteed win
+            else if (state.getSeedsInStore(this.ourPlayer.opposite()) == minNumberOfSeedsForSureWin)
+                this.heuristicValue = -9999; // set the heuristic value to a silly number if a garunteed loss
+            else if (this.playerMakingMove == parentNode.getPMM())
+            {
+                if (this.isMaxNode()) // check if the current node is a maximising node for our player
+                {
+                    this.heuristicValue += (extraMoveConstant + lastMoveToGetHere);
+                    if (parentNode.state.getSeeds(ourPlayer.opposite(), (8 - lastMoveToGetHere)) == 0)
+                        this.heuristicValue += parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+                }
+                else
+                {
+                    this.heuristicValue -= (extraMoveConstant + lastMoveToGetHere);
+                    if (parentNode.state.getSeeds(ourPlayer.opposite(), (8 - lastMoveToGetHere)) == 0)
+                        this.heuristicValue -= parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+                }
             }
-            else{
-                this.value += lastMoveToGetHere;
-                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
-                    this.value += parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
-            }
+            else
+            {
+                if (this.isMaxNode())
+                {
+                    this.heuristicValue -= lastMoveToGetHere;
+                    if (parentNode.state.getSeeds(ourPlayer.opposite(), (8 - lastMoveToGetHere)) == 0)
+                        this.heuristicValue -= parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+                }
+                else
+                {
+                    this.heuristicValue += lastMoveToGetHere;
+                    if (parentNode.state.getSeeds(ourPlayer.opposite(), (8 - lastMoveToGetHere)) == 0)
+                        this.heuristicValue += parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+                }
 
+            }
         }
     }
 
@@ -129,7 +144,7 @@ public class Node implements Comparable<Node>
     @Override
     public int compareTo(Node other)
     {
-        return this.value > other.value ? -1 : (this.value < other.value ? 1 : 0);
+        return this.heuristicValue > other.heuristicValue ? -1 : (this.heuristicValue < other.heuristicValue ? 1 : 0);
     }
 
 }

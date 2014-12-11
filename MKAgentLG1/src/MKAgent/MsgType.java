@@ -3,7 +3,8 @@ package src.MKAgent;
 /**
  * Types of messages the game engine can send to the agent.
  */
-public enum MsgType {
+public enum MsgType
+{
     /**
      * message announcing the start of the game ("new_match" message)
      */
