@@ -1,8 +1,6 @@
 package src.MKAgent;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by mbax9vv2 on 21/11/14.
@@ -19,9 +17,7 @@ public class Node implements Comparable<Node>
     int lastMoveToGetHere;
     boolean completedAttemptToBuildChildren = false;
     boolean completedBuildToRequiredDepth = false;
-    boolean isFirstMove = false;
-    boolean isSecondMove = false;
-    int noMoves;
+    int depth;
 
     int interestedInValuesAbove = Integer.MIN_VALUE;
     int interestedInValuesBelow = Integer.MAX_VALUE;
@@ -44,8 +40,7 @@ public class Node implements Comparable<Node>
         value = 0;
         pruneValue = value;
         children = null;
-        isFirstMove = true;
-        noMoves=0;
+        depth = 1;
     }
 
     public Node(Side playerMakingMove, Board state, Side us)
@@ -68,7 +63,7 @@ public class Node implements Comparable<Node>
         lastMoveToGetHere = move;
         evaluateBasedOnThisNode(parentNode);
         pruneValue = value;
-        this.noMoves=parentNode.noMoves+1;
+        this.depth = parentNode.depth +1;
     }
 
     public void evaluateBasedOnChildren()
@@ -102,7 +97,7 @@ public class Node implements Comparable<Node>
         else if (this.playerMakingMove == parentNode.getPMM()){
             if(this.isMaxNode()){
                 this.value += (extraMoveConstant + lastMoveToGetHere);
-                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
+                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0) // this errors out if the move# is for swap
                     this.value += parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
             }
             else{
