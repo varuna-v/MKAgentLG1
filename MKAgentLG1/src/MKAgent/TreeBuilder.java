@@ -26,7 +26,7 @@ public class TreeBuilder implements Runnable
         _currentNode = new Node(Side.SOUTH, thisAgentsSide);
 
         try{
-            writer = new PrintWriter("/home/illegal.txt", "UTF-8");
+            writer = new PrintWriter("/home/mbax2sp2/illegal.txt", "UTF-8");
             writer.println("Hi");
         }
         catch(Exception e){
@@ -34,7 +34,7 @@ public class TreeBuilder implements Runnable
         }
     }
 
-    private final int desiredTreeDepth = 5;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
+    private final int desiredTreeDepth = 6;  // pruning will therefore be based on a node's value based on (7-1=) 6 children
 
     public void quickBuildTreeForCurrentNode()
     {
@@ -69,35 +69,35 @@ public class TreeBuilder implements Runnable
             }
         }
     }
-    /*
-        private void pruneTree()
+/*
+    private void pruneTree()
+    {
+        if (_currentNode != null && _currentNode.completedAttemptToBuildChildren && _currentNode.children != null && _currentNode.children.size() > 0)
         {
-            if (_currentNode != null && _currentNode.completedAttemptToBuildChildren && _currentNode.children != null && _currentNode.children.size() > 0)
+            _currentNode.evaluateBasedOnChildren();
+            for (int counter = 0; counter < _currentNode.children.size(); counter++)
             {
-                _currentNode.evaluateBasedOnChildren();
-                for (int counter = 0; counter < _currentNode.children.size(); counter++)
+                if (_currentNode.isMaxNode())
                 {
-                    if (_currentNode.isMaxNode())
+                    if (_currentNode.children.get(counter).value >= _currentNode.interestedInValuesAbove)
                     {
-                        if (_currentNode.children.get(counter).value >= _currentNode.interestedInValuesAbove)
-                        {
-                            _currentNode.interestedInValuesAbove = _currentNode.children.get(counter).value;
-                            _currentNode.children.remove(_currentNode.children.get(counter));
-                        }
+                        _currentNode.interestedInValuesAbove = _currentNode.children.get(counter).value;
+                        _currentNode.children.remove(_currentNode.children.get(counter));
                     }
-                    else
+                }
+                else
+                {
+                    if (_currentNode.children.get(counter).value <= _currentNode.interestedInValuesBelow)
                     {
-                        if (_currentNode.children.get(counter).value <= _currentNode.interestedInValuesBelow)
-                        {
-                            _currentNode.interestedInValuesBelow = _currentNode.children.get(counter).value;
-                            _currentNode.children.remove(_currentNode.children.get(counter));
-                        }
+                        _currentNode.interestedInValuesBelow = _currentNode.children.get(counter).value;
+                        _currentNode.children.remove(_currentNode.children.get(counter));
                     }
                 }
             }
-        }*/
+        }
+    }*/
     public double alphabetaPruning(Node node, double alpha, double beta){
-        double futureMultiplier= 0.5;
+        double futureMultiplier = 0.5;
         if(node.children == null || node.children.size() < 1){
             node.pruneValue = node.value;
             return node.value;
@@ -137,6 +137,9 @@ public class TreeBuilder implements Runnable
                     childBoard = node.state.clone();
                     Side nextPlayer = Kalah.makeMove(childBoard, move);
                     Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
+                    if(node.isFirstMove){
+                        child.isSecondMove = true;
+                    }
                     kids.add(child);
                 }
                 catch (CloneNotSupportedException e)
@@ -145,13 +148,13 @@ public class TreeBuilder implements Runnable
                 }
             }
         }
-        // TODO this is what we changed on 10/dec
-        if(node.noMoves == 1){
+        if(node.isSecondMove){
             try
             {
                 Board childBoard = node.state.clone();
-                Node child = new Node(node.ourPlayer, childBoard, node.ourPlayer.opposite(), node, 8);
-                kids.add(child);
+                //Side nextPlayer = Kalah.makeMove(childBoard, move);
+                //Node child = new Node(nextPlayer, childBoard, node.ourPlayer, node, i);
+                //kids.add(child);
             }
             catch (CloneNotSupportedException e)
             {
@@ -173,7 +176,6 @@ public class TreeBuilder implements Runnable
             return null;
     }
 
-       // TODO if you uncomment the update bot performs illegal moves
     public void UpdateTree(int move, Side side)
     {
         //side may not be needed
@@ -186,7 +188,15 @@ public class TreeBuilder implements Runnable
                 {
 
                     stop();
-                    //_currentNode = child;
+                    /*
+                    _currentNode = child;
+                    writer.println("new Node is");
+                    writer.println(_currentNode.state.toString());
+                    writer.println("kids are");
+                    for(Node c : _currentNode.children){
+                        writer.println(c.state);
+                    }
+                    */
                     treeBuilderThread.run();
                 }
             }

@@ -96,21 +96,33 @@ public class Node implements Comparable<Node>
         this.value = state.getSeedsInStore(this.ourPlayer) - parentNode.state.getSeedsInStore(parentNode.ourPlayer);
         this.value -= (state.getSeedsInStore(this.ourPlayer.opposite()) - parentNode.state.getSeedsInStore(parentNode.ourPlayer.opposite()));
         if (state.getSeedsInStore(this.ourPlayer) == minNumberOfSeedsForSureWin)
-            this.value = Integer.MAX_VALUE;
+            this.value = 9999;
         else if (state.getSeedsInStore(this.ourPlayer.opposite()) == minNumberOfSeedsForSureWin)
-            this.value = Integer.MIN_VALUE;
+            this.value = -9999;
         else if (this.playerMakingMove == parentNode.getPMM()){
-            if(this.isMaxNode())
+            if(this.isMaxNode()){
                 this.value += (extraMoveConstant + lastMoveToGetHere);
-            else
+                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
+                    this.value += parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+            }
+            else{
                 this.value -= (extraMoveConstant + lastMoveToGetHere);
+                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
+                    this.value -= parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+            }
         }
-
         else {
-            if(this.isMaxNode())
+            if(this.isMaxNode()){
                 this.value -= lastMoveToGetHere;
-            else
+                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
+                    this.value -= parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+            }
+            else{
                 this.value += lastMoveToGetHere;
+                if(parentNode.state.getSeeds(ourPlayer.opposite(), (8-lastMoveToGetHere)) == 0)
+                    this.value += parentNode.state.getSeeds(ourPlayer.opposite(), lastMoveToGetHere);
+            }
+
         }
     }
 

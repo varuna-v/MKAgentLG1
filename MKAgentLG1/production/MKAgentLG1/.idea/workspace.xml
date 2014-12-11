@@ -6,31 +6,52 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="459dd079-933a-4519-ad8f-8dcd72b73156" name="Default" comment="Incorporating provided code">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Agent.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Board$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Board.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/InvalidMessageException.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Kalah.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Main.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Move.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/MsgType.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Node.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Protocol$MoveTurn.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Protocol.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Side$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Side.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Test.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/MKAgentLG1_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MKAgent/Test.java" />
+    <list default="true" id="459dd079-933a-4519-ad8f-8dcd72b73156" name="Default" comment="missing swap care">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Agent.class" afterPath="$PROJECT_DIR$/src/MKAgent/Agent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Board$1.class" afterPath="$PROJECT_DIR$/src/MKAgent/Board$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Board.class" afterPath="$PROJECT_DIR$/src/MKAgent/Board.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/InvalidMessageException.class" afterPath="$PROJECT_DIR$/src/MKAgent/InvalidMessageException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Kalah.class" afterPath="$PROJECT_DIR$/src/MKAgent/Kalah.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/MKAgentLG1_jar/MKAgentLG1.jar" afterPath="$PROJECT_DIR$/out/artifacts/MKAgentLG1_jar/MKAgentLG1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Main$1.class" afterPath="$PROJECT_DIR$/src/MKAgent/Main$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Main.class" afterPath="$PROJECT_DIR$/src/MKAgent/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Move.class" afterPath="$PROJECT_DIR$/src/MKAgent/Move.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/MsgType.class" afterPath="$PROJECT_DIR$/src/MKAgent/MsgType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Node.class" afterPath="$PROJECT_DIR$/src/MKAgent/Node.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Protocol$MoveTurn.class" afterPath="$PROJECT_DIR$/src/MKAgent/Protocol$MoveTurn.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Protocol.class" afterPath="$PROJECT_DIR$/src/MKAgent/Protocol.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Side$1.class" afterPath="$PROJECT_DIR$/src/MKAgent/Side$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Side.class" afterPath="$PROJECT_DIR$/src/MKAgent/Side.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Test.class" afterPath="$PROJECT_DIR$/src/MKAgent/Test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.class" afterPath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Agent.java" afterPath="$PROJECT_DIR$/src/MKAgent/Agent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Board.java" afterPath="$PROJECT_DIR$/src/MKAgent/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/InvalidMessageException.java" afterPath="$PROJECT_DIR$/src/MKAgent/InvalidMessageException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Kalah.java" afterPath="$PROJECT_DIR$/src/MKAgent/Kalah.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../MKAgentLG1.iml" afterPath="$PROJECT_DIR$/../MKAgentLG1.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/MKAgentLG1.iml" afterPath="$PROJECT_DIR$/.idea/MKAgentLG1.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/MKAgentLG1.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/MKAgentLG1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/libraries/MKAgentLG11.xml" afterPath="$PROJECT_DIR$/../.idea/libraries/MKAgentLG11.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/MKAgentLG1_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/MKAgentLG1_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Main.java" afterPath="$PROJECT_DIR$/src/MKAgent/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Move.java" afterPath="$PROJECT_DIR$/src/MKAgent/Move.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/MsgType.java" afterPath="$PROJECT_DIR$/src/MKAgent/MsgType.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Node.java" afterPath="$PROJECT_DIR$/src/MKAgent/Node.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Protocol.java" afterPath="$PROJECT_DIR$/src/MKAgent/Protocol.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Side.java" afterPath="$PROJECT_DIR$/src/MKAgent/Side.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/Test.java" afterPath="$PROJECT_DIR$/src/MKAgent/Test.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.java" afterPath="$PROJECT_DIR$/src/MKAgent/TreeBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MKAgentLG1.iws" />
@@ -54,84 +75,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MKAgent/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334" vertical-offset="586" max-vertical-offset="1830">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Side.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MKAgent/Side.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TreeBuilder.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MKAgent/TreeBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="915">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding>
-                <element signature="e#345#346#0" expanded="true" />
-                <element signature="e#396#397#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Move.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MKAgent/Move.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="840">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding>
-                <element signature="e#1044#1045#0" expanded="true" />
-                <element signature="e#1065#1066#0" expanded="true" />
-                <element signature="e#1243#1244#0" expanded="true" />
-                <element signature="e#1264#1265#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Protocol.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MKAgent/Protocol.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2307" max-vertical-offset="2865">
-              <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-              <folding>
-                <element signature="e#1017#1018#0" expanded="true" />
-                <element signature="e#1061#1062#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Kalah.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MKAgent/Kalah.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="832" max-vertical-offset="3450">
-              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="3780">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Agent.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MKAgent/Agent.java">
+      <file leaf-file-name="Test.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MKAgent/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="2235">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -140,12 +98,39 @@
       <file leaf-file-name="Board.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MKAgent/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2049" max-vertical-offset="4290">
-              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-              <folding>
-                <element signature="e#3393#3394#0" expanded="true" />
-                <element signature="e#3415#3416#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="4305">
+              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MKAgent/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="923" max-vertical-offset="1965">
+              <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Move.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MKAgent/Move.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="780">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Agent.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MKAgent/Agent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.1942231" vertical-offset="0" max-vertical-offset="1005">
+              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,18 +138,18 @@
       <file leaf-file-name="Node.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MKAgent/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="915">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="2190">
+              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InvalidMessageException.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MKAgent/InvalidMessageException.java">
+      <file leaf-file-name="Side.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MKAgent/Side.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="420">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -178,6 +163,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
@@ -191,22 +177,23 @@
         <option value="$PROJECT_DIR$/src/MKAgent/InvalidMessageException.java" />
         <option value="$PROJECT_DIR$/src/MKAgent/MsgType.java" />
         <option value="$PROJECT_DIR$/src/MKAgent/Protocol.java" />
-        <option value="$PROJECT_DIR$/src/MKAgent/Test.java" />
         <option value="$PROJECT_DIR$/src/MKAgent/Move.java" />
         <option value="$PROJECT_DIR$/src/MKAgent/Board.java" />
-        <option value="$PROJECT_DIR$/src/MKAgent/Node.java" />
         <option value="$PROJECT_DIR$/src/MKAgent/Kalah.java" />
+        <option value="$PROJECT_DIR$/src/MKAgent/Test.java" />
         <option value="$PROJECT_DIR$/src/MKAgent/Side.java" />
         <option value="$PROJECT_DIR$/src/MKAgent/Main.java" />
         <option value="$PROJECT_DIR$/src/MKAgent/Agent.java" />
+        <option value="$PROJECT_DIR$/src/MKAgent/Node.java" />
         <option value="$PROJECT_DIR$/src/MKAgent/TreeBuilder.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="91" />
     <option name="y" value="25" />
-    <option name="width" value="1311" />
-    <option name="height" value="1000" />
+    <option name="width" value="1589" />
+    <option name="height" value="1150" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -310,6 +297,48 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MKAgentLG1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MKAgentLG1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MKAgentLG1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MKAgentLG1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src.MKAgent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MKAgentLG1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MKAgentLG1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out.artifacts.MKAgentLG1_jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -362,34 +391,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MKAgentLG1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MKAgentLG1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MKAgentLG1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MKAgentLG1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src.MKAgent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -401,7 +402,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="preferences.sourceCode.Java" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -429,6 +430,34 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="src.MKAgent.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="MKAgentLG1" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="src.MKAgent.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="src.MKAgent.Test" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -662,12 +691,14 @@
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Test" />
     </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Test" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -690,7 +721,18 @@
       <workItem from="1416591992563" duration="15000" />
       <workItem from="1416838922478" duration="1586000" />
       <workItem from="1416842924487" duration="1037000" />
-      <workItem from="1417178197185" duration="4634000" />
+      <workItem from="1417178197185" duration="6135000" />
+      <workItem from="1417184491636" duration="1506000" />
+      <workItem from="1417186080543" duration="10000" />
+      <workItem from="1417446210430" duration="31000" />
+      <workItem from="1417446298189" duration="7123000" />
+      <workItem from="1417526051062" duration="2123000" />
+      <workItem from="1417532538818" duration="3066000" />
+      <workItem from="1417707546735" duration="2838000" />
+      <workItem from="1418124493960" duration="3064000" />
+      <workItem from="1418129613231" duration="6582000" />
+      <workItem from="1418310994849" duration="72000" />
+      <workItem from="1418311940949" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="Incorporating provided code">
       <created>1416585834082</created>
@@ -700,11 +742,39 @@
       <created>1416585919392</created>
       <updated>1416585919392</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Getting main to work">
+      <created>1417183124115</created>
+      <updated>1417183124115</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added artifacts">
+      <created>1417183742829</created>
+      <updated>1417183742829</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added artifacts">
+      <created>1417184163161</created>
+      <updated>1417184163161</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Linked I/O operations with heuristic + agent">
+      <created>1417453416635</created>
+      <updated>1417453416635</updated>
+    </task>
+    <task id="LOCAL-00007" summary="trying to make agent work">
+      <created>1418129657097</created>
+      <updated>1418129657097</updated>
+    </task>
+    <task id="LOCAL-00008" summary="trying to make agent work">
+      <created>1418129748106</created>
+      <updated>1418129748106</updated>
+    </task>
+    <task id="LOCAL-00009" summary="missing swap care">
+      <created>1418137062143</created>
+      <updated>1418137062143</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17182000" />
+    <option name="totallyTimeSpent" value="45110000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -727,33 +797,33 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1311" height="1000" extended-state="0" />
-    <editor active="false" />
+    <frame x="91" y="25" width="1589" height="1150" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16647792" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09786131" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33902162" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34559536" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32842582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655367" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969475" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24347825" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18729748" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43818983" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31439394" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32671082" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -774,37 +844,36 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Incorporating provided code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Incorporating provided code" />
+    <MESSAGE value="Getting main to work" />
+    <MESSAGE value="Added artifacts" />
+    <MESSAGE value="Linked I/O operations with heuristic + agent" />
+    <MESSAGE value="trying to make agent work" />
+    <MESSAGE value="missing swap care" />
+    <option name="LAST_COMMIT_MESSAGE" value="missing swap care" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MKAgent/Main.java</url>
+          <url>file://$PROJECT_DIR$/src/MKAgent/Test.java</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MKAgent/Test.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/MKAgent/TreeBuilder.java</url>
           <line>50</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MKAgent/Main.java</url>
-          <line>94</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MKAgent/Main.java</url>
-          <line>72</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MKAgent/Main.java</url>
-          <line>103</line>
-          <properties />
-          <option name="timeStamp" value="12" />
+          <properties class="src.MKAgent.TreeBuilder" />
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="30" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -812,21 +881,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MKAgent/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1005">
-          <caret line="11" column="16" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MKAgent/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1815">
           <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -834,10 +893,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="975">
           <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
-          <folding>
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -853,12 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="840">
           <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding>
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -866,7 +916,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="375">
           <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,10 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2190" max-vertical-offset="2910">
           <caret line="146" column="36" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="36" />
-          <folding>
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1061#1062#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -885,7 +930,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="375">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -893,10 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="4380">
           <caret line="44" column="5" selection-start-line="43" selection-start-column="46" selection-end-line="44" selection-end-column="5" />
-          <folding>
-            <element signature="e#3393#3394#0" expanded="true" />
-            <element signature="e#3415#3416#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -904,7 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="3630">
           <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -920,9 +959,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1815">
           <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -930,10 +967,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="915">
           <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -941,12 +975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="840">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -954,7 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="375">
           <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -962,10 +989,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2190" max-vertical-offset="2910">
           <caret line="146" column="36" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="36" />
-          <folding>
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1061#1062#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -973,7 +996,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="375">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -981,10 +1003,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="4245">
           <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
-          <folding>
-            <element signature="e#3393#3394#0" expanded="true" />
-            <element signature="e#3415#3416#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -999,7 +1017,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3630">
           <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1015,9 +1032,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1815">
           <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1025,10 +1040,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="915">
           <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1036,12 +1048,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="840">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1049,7 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="375">
           <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1057,10 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2190" max-vertical-offset="2910">
           <caret line="146" column="36" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="36" />
-          <folding>
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1061#1062#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1068,7 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="375">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,10 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="4245">
           <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
-          <folding>
-            <element signature="e#3393#3394#0" expanded="true" />
-            <element signature="e#3415#3416#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1094,7 +1090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3630">
           <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,9 +1105,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
           <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1120,10 +1113,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="495">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1131,12 +1121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="345">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1144,7 +1128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="210">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1152,9 +1135,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
           <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,10 +1143,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="420">
           <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1173,12 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1186,15 +1158,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="210">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MKAgent/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1202,103 +1165,98 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
           <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MKAgent/InvalidMessageException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+        <state vertical-scroll-proportion="0.10600707" vertical-offset="0" max-vertical-offset="566">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MKAgent/Side.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MKAgent/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="915">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MKAgent/Kalah.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="863" max-vertical-offset="3450">
+        <state vertical-scroll-proportion="0.30565372" vertical-offset="832" max-vertical-offset="3450">
           <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MKAgent/Protocol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7349823" vertical-offset="2299" max-vertical-offset="2865">
+          <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.6.0-openjdk.x86_64/jre/lib/rt.jar!/java/lang/Runnable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16157989" vertical-offset="0" max-vertical-offset="557">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MKAgent/Side.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MKAgent/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2049" max-vertical-offset="4290">
-          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-          <folding>
-            <element signature="e#3393#3394#0" expanded="true" />
-            <element signature="e#3415#3416#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MKAgent/Protocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2307" max-vertical-offset="2865">
-          <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-          <folding>
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1061#1062#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MKAgent/TreeBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="915">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="4245">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MKAgent/Move.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="840">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MKAgent/Agent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MKAgent/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="586" max-vertical-offset="1830">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="923" max-vertical-offset="1965">
+          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MKAgent/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2055">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MKAgent/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1935">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MKAgent/TreeBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3735">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MKAgent/Agent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1942231" vertical-offset="0" max-vertical-offset="1005">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1357,6 +1315,18 @@
       <state key="ModuleStructureConfigurable.UI">
         <settings>
           <last-edited>MKAgentLG1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

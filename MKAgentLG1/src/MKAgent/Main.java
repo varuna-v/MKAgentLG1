@@ -5,6 +5,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.*;
 
 /**
  * The main application class. It also provides methods for communication
@@ -95,17 +96,16 @@ public class Main
                     case END:
                         System.exit(0);
                 }
-                if (areWeMakingTheNextMove)//TODO do we update on our moves?
+                if (areWeMakingTheNextMove)
                 {
                     Move move = Agent.getNextBestMove(treeBuilder, nextSide);
-                    String messageToSend;
-                    if(move.getHole() != 8){
-                        messageToSend = Protocol.createMoveMsg(move.getHole());
+                    if(Kalah.isLegalMove(treeBuilder.getCurrentBoard(), move)){
+                        String messageToSend = Protocol.createMoveMsg(move.getHole());
+                        sendMsg(messageToSend);
                     }
                     else{
-                        messageToSend = Protocol.createSwapMsg();
+
                     }
-                    sendMsg(messageToSend);
                 }
                 receivedMessage = recvMsg();
             }
