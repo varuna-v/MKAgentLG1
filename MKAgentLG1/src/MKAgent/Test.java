@@ -1,9 +1,6 @@
 //package src.MKAgent;
 package src.MKAgent;
 
-import java.util.Collection;
-import java.util.Collections;
-
 /**
  * Created by mbax2sp2 on 21/11/14.
  */
@@ -14,47 +11,94 @@ public class Test
     {
         try
         {
-            Board myb = new Board(7, 7);
+            Board board = new Board(7, 7);
+
+            System.out.println(board.toString());
+
+            System.out.println("South moving hole 1");
+            Move move = new Move(Side.SOUTH, 1);
+            Side nextSide = Kalah.makeMove(board, move);
+            System.out.print(board.toString());
+            System.out.println("Next side = " + nextSide.toString());
+            System.out.println();
+
+            System.out.println("Next side moving hole 1");
+            move = new Move(nextSide, 1);
+            nextSide = Kalah.makeMove(board, move);
+            System.out.print(board.toString());
+            System.out.println("Next side = " + nextSide.toString());
+            System.out.println();
+
+
+            System.out.println("Next side moving hole 5");
+            move = new Move(nextSide, 5);
+            nextSide = Kalah.makeMove(board, move);
+            System.out.print(board.toString());
+            System.out.println("Next side = " + nextSide.toString());
+            System.out.println();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              /*Board myb = new Board(7, 7);
             System.out.println("made board");
             Node root;
             Node kid;
 
             TreeBuilder treeBuilder = new TreeBuilder(Side.NORTH);
 
-            treeBuilder.start();
-            sleepForABit();
+           // treeBuilder.start();
+            //sleepForABit();
 
             root = treeBuilder.getCurrentNode();
             System.out.println("Board " + root.state + "move No = " + root.depth + "\n has " + root.children.size() + " kids");
             for (int i = 0; i < root.children.size(); i++)
             {
-                System.out.println("Value = " + root.children.get(i).heuristicValue + "move No = " + root.children.get(i).depth + " | PruneValue = " + root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
+                System.out.println("Value = " + root.children.get(i).heuristicValue + "move No = " + root.children.get(i).depth + " | PruneValue = " + root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayersSide);
                 System.out.println(root.children.get(i).state);
             }
             treeBuilder.alphaBetaPruning(root, -9999999, +9999999);
-            Move move = Agent.getNextBestMove(treeBuilder, root.getPMM());
-            treeBuilder.UpdateTree(move.getHole(), root.getPMM());
+            int holeToMove = Agent.getNextBestMove(treeBuilder, root.playerMakingTheNextMove);
+            treeBuilder.UpdateTree(holeToMove);
             root = treeBuilder.getCurrentNode();
             System.out.println("Value = " + root.heuristicValue + "move No = " + root.depth + " | PruneValue = " + root.pruneValue);
             System.out.println("Board " + root.state + "\n has " + root.children.size() + " kids");
             for (int i = 0; i < root.children.size(); i++)
             {
-                System.out.println("Value = " + root.children.get(i).heuristicValue + "move No = " + root.children.get(i).depth + " | PruneValue = " + root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
+                System.out.println("Value = " + root.children.get(i).heuristicValue + "move No = " + root.children.get(i).depth + " | PruneValue = " + root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayersSide);
                 System.out.println(root.children.get(i).state);
             }
             treeBuilder.alphaBetaPruning(root, -9999999, +9999999);
-            move = Agent.getNextBestMove(treeBuilder, root.getPMM());
-            treeBuilder.UpdateTree(move.getHole(), root.getPMM());
+            holeToMove = Agent.getNextBestMove(treeBuilder, root.playerMakingTheNextMove);
+            treeBuilder.UpdateTree(holeToMove);
             root = treeBuilder.getCurrentNode();
             System.out.println("Value = " + root.heuristicValue + "move No = " + root.depth + " | PruneValue = " + root.pruneValue);
             System.out.println("Board " + root.state + "\n has " + root.children.size() + " kids");
             for (int i = 0; i < root.children.size(); i++)
             {
-                System.out.println("Value = " + root.children.get(i).heuristicValue + "move No = " + root.children.get(i).depth + " | PruneValue = " + root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayer);
+                System.out.println("Value = " + root.children.get(i).heuristicValue + "move No = " + root.children.get(i).depth + " | PruneValue = " + root.children.get(i).pruneValue + " we are:" + root.children.get(i).ourPlayersSide);
                 System.out.println(root.children.get(i).state);
             }
 
-            /*
+
             kid = root.children.get(0);
             System.out.println("best child is");
             System.out.println(kid.value);
@@ -68,8 +112,7 @@ public class Test
             }
 
             System.out.println(root.children.get(0).value);
-            System.out.println(root.children.get(0).state);*/
-            Collections.sort(root.children);
+            System.out.println(root.children.get(0).state);
             treeBuilder.UpdateTree(root.children.get(0).lastMoveToGetHere, Side.SOUTH);
             sleepForABit();
 
@@ -91,7 +134,7 @@ public class Test
             {
                 System.out.println(kid.children.get(i).value);
                 System.out.println(kid.children.get(i).state);
-            }
+            }*/
 
 
         }

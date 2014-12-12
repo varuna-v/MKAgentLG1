@@ -44,13 +44,12 @@ public class Main
             if (newCharacter == -1)
                 throw new EOFException("Input ended unexpectedly.");
             message.append((char) newCharacter);
-        } while ((char) newCharacter != '\n');
+        }
+        while ((char) newCharacter != '\n');
 
         return message.toString();
     }
 
-
-    private static PrintWriter writer = null;
     /**
      * The main method, invoked when the program is started.
      *
@@ -60,7 +59,6 @@ public class Main
     {
         try
         {
-            writer = new PrintWriter("/home/mbax9vv2/Desktop/AIProj/lastMessage.txt", "UTF-8");
             String receivedMessage = recvMsg();
             boolean areWeSouth = false;
             while (!receivedMessage.contains("END"))
@@ -74,11 +72,11 @@ public class Main
                         areWeMakingTheNextMove = Protocol.interpretStartMsg(receivedMessage);
                         areWeSouth = areWeMakingTheNextMove;
                         treeBuilder = new TreeBuilder(areWeSouth ? Side.SOUTH : Side.NORTH);
-                        treeBuilder.start();
+                        // treeBuilder.start();
                         nextSide = getNextSide(areWeMakingTheNextMove, areWeSouth);
                         break;
                     case STATE:
-                        Protocol.MoveTurn moveTurn = Protocol.interpretStateMsg(receivedMessage, treeBuilder.getCurrentBoard());
+                        Protocol.MoveTurn moveTurn = Protocol.interpretStateMsg(receivedMessage, treeBuilder.getCurrentNode().state);
                         if (moveTurn.move == -1)
                         {
                             areWeSouth = false;
@@ -89,33 +87,31 @@ public class Main
                         }
                         areWeMakingTheNextMove = moveTurn.again;
                         nextSide = getNextSide(areWeMakingTheNextMove, areWeSouth);
-                        treeBuilder.UpdateTree(moveTurn.move, nextSide);
+                        treeBuilder.UpdateTree(moveTurn.move);
                         break;
                     case END:
                         System.exit(0);
                 }
                 if (areWeMakingTheNextMove)
                 {
-                    int moveHole = Agent.getNextBestMove(treeBuilder, nextSide);
-                    String messageToSend;
-                    if (moveHole == -1)
-                        messageToSend = Protocol.createSwapMsg();
+                    String messageToSend = "";
+                    int holeToMove = Agent.getNextBestMove(treeBuilder, nextSide);
+                    if (holeToMove != 8)
+                        messageToSend = Protocol.createMoveMsg(holeToMove);
                     else
-                        messageToSend = Protocol.createMoveMsg(moveHole);
-
-
-                    writeMessageToFile(messageToSend);
+                        messageToSend = Protocol.createSwapMsg();
 
                     sendMsg(messageToSend);
+
                 }
                 receivedMessage = recvMsg();
             }
         }
         catch (Exception ex)
         {
+            sendMsg("Error");
             //sendMsg(ex.getMessage().concat("\n"));
         }
-        writer.close();
     }
 
     private static Side getNextSide(boolean areWeMakingTheNextMove, boolean areWeSouth)
@@ -123,12 +119,5 @@ public class Main
         boolean isSouthPlayingNext = false;
         isSouthPlayingNext = (areWeMakingTheNextMove && areWeSouth) || (!areWeMakingTheNextMove && !areWeSouth);
         return isSouthPlayingNext ? Side.SOUTH : Side.NORTH;
-    }
-
-
-    private static void writeMessageToFile(String message)
-    {
-        writer.println(message);
-
     }
 }

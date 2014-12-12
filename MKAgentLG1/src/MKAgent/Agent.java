@@ -1,7 +1,5 @@
 package src.MKAgent;
 
-import java.util.Collections;
-
 /**
  * Created by mbax9vv2 on 17/11/14.
  */
@@ -9,58 +7,70 @@ public class Agent
 {
     public static int getNextBestMove(TreeBuilder treeBuilder, Side side)
     {
+        if (!treeBuilder.getCurrentNode().completedBuildToRequiredDepth)
+        {
+            treeBuilder.buildTree();
+        }
+
         Node currentNode = treeBuilder.getCurrentNode();
-        if (!currentNode.completedBuildToRequiredDepth)
+        int holeNumberToMove = currentNode.children.get(0).lastMoveToGetHere;
+
+        if (currentNode.children != null && currentNode.children.size() > 0)
         {
-            //TODO implement timer check
-            treeBuilder.quickBuildTreeForCurrentNode();
-        }
-        Board state = treeBuilder.getCurrentBoard();
-        int moveHole = -17;
-        if (currentNode != null && currentNode.children != null && currentNode.children.size() > 0)
-        {
-            treeBuilder.alphabetaPruning(currentNode, Node.minValue, Node.maxValue);
-            Collections.sort(currentNode.children);
-            moveHole = currentNode.children.get(0).lastMoveToGetHere;
-            /*for (Node c : currentNode.children)
+            if (currentNode.depth == 1)
+                treeBuilder.alphaBetaPruning(currentNode, -9999, 9999);
+            else
+                treeBuilder.alphaBetaPruning(currentNode, currentNode.alpha, currentNode.beta);
+
+            Node favChild = currentNode.children.get(0);
+            for (Node c : currentNode.children)
             {
-                if (c.pruneValue == (currentNode.pruneValue - currentNode.value))
+                if (c.pruneValue > favChild.pruneValue)
                 {
-                    moveHole = c.lastMoveToGetHere;
-                    break;
+                    favChild = c;
                 }
-            }*/
-        }
-        else
-        {
-            moveHole = getNextLegalMove(currentNode.state, side);
+                else if (c.pruneValue == favChild.pruneValue)
+                {
+                    if (c.heuristicValue > favChild.heuristicValue)
+                    {
+                        favChild = c;
+                    }
+                }
+            }
+            holeNumberToMove = favChild.lastMoveToGetHere;
         }
 
-
-        if (moveHole == -1 && !currentNode.isSecondMove)
-            moveHole = getNextLegalMove(currentNode.state, side);
-        else if (moveHole < 1)
-        {
-            moveHole = getNextLegalMove(currentNode.state, side);
-        }
+        Move move = null;
+        boolean couldNotFindMove = false;
+        if (holeNumberToMove == 8 && currentNode.depth != 2)
+            couldNotFindMove = true;
         else
         {
-            Move move = new Move(side, moveHole);
+            move = new Move(side, holeNumberToMove);
             if (!Kalah.isLegalMove(currentNode.state, move))
-                moveHole = getNextLegalMove(currentNode.state, side);
+                couldNotFindMove = true;
         }
 
-        return moveHole;
+        if (couldNotFindMove)
+        {
+            move = getNextLegalMove(currentNode.state, side);
+            holeNumberToMove = move.getHole();
+        }
+
+        return holeNumberToMove;
+
     }
 
-    private static int getNextLegalMove(Board state, Side side)
+    public static Move getNextLegalMove(Board state, Side side)
     {
         for (int i = 7; i >= 1; i--)
         {
             Move move = new Move(side, i);
             if (Kalah.isLegalMove(state, move))
-                return i;
+                return move;
         }
-        return 7;
+        return null;
     }
+
+
 }
