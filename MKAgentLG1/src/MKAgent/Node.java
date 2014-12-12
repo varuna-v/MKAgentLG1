@@ -99,9 +99,9 @@ public class Node implements Comparable<Node>
         else
         {
             if (state.getSeedsInStore(this.ourPlayer) == minNumberOfSeedsForSureWin)
-                this.heuristicValue = 9999; // set the heuristic value to a silly number if it is a garunteed win
+                this.heuristicValue = 9999; // set the heuristic value to a silly number if it is a guaranteed win
             else if (state.getSeedsInStore(this.ourPlayer.opposite()) == minNumberOfSeedsForSureWin)
-                this.heuristicValue = -9999; // set the heuristic value to a silly number if a garunteed loss
+                this.heuristicValue = -9999; // set the heuristic value to a silly number if a guaranteed loss
             else if (this.playerMakingMove == parentNode.getPMM())
             {
                 if (this.isMaxNode()) // check if the current node is a maximising node for our player

@@ -10,14 +10,13 @@ public class Agent
         Node currentNode = treeBuilder.getCurrentNode();
         if (!currentNode.completedBuildToRequiredDepth)
         {
-            //TODO implement timer check
             treeBuilder.quickBuildTreeForCurrentNode();
         }
         Board state = treeBuilder.getCurrentBoard();
         Move move;
         int holeNumberToMove = currentNode.children.get(0).lastMoveToGetHere;
         move = new Move(side, holeNumberToMove);
-        if (currentNode != null && currentNode.children != null && currentNode.children.size() > 0)
+        if (currentNode.children != null && currentNode.children.size() > 0)
         {
             treeBuilder.alphaBetaPruning(currentNode, -9999, 9999);
             Node favChild = currentNode.children.get(0);
@@ -55,7 +54,7 @@ public class Agent
         return move;
     }
 
-    private static Move getNextLegalMove(Board state, Side side)
+    public static Move getNextLegalMove(Board state, Side side)
     {
         for (int i = 7; i >= 1; i--)
         {

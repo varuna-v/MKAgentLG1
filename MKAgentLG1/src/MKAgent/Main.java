@@ -102,6 +102,7 @@ public class Main
                     }
                     else
                     {
+                        Protocol.createMoveMsg(Agent.getNextLegalMove(treeBuilder.getCurrentBoard(),nextSide).getHole());
 
                     }
                 }
